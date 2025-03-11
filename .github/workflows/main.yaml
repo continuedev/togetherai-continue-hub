@@ -1,0 +1,51 @@
+name: Publish Continue Assistant/Block(s)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - blocks/**
+      - assistants/**
+      - .github/workflows/main.yaml
+
+env:
+  OWNER_SLUG: my-org-slug # <-- TODO
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Public blocks
+      - uses: continuedev/continue-publish-action@v1
+        with:
+          owner-slug: ${{ env.OWNER_SLUG }}
+          paths: blocks/public/**
+          api-key: ${{ secrets.CONTINUE_API_KEY }}
+
+      # Public assistants
+      - uses: continuedev/continue-publish-action@v1
+        with:
+          owner-slug: ${{ env.OWNER_SLUG }}
+          paths: assistants/public/**
+          is-assistant: true
+          api-key: ${{ secrets.CONTINUE_API_KEY }}
+
+      # Private blocks
+      - uses: continuedev/continue-publish-action@v1
+        with:
+          owner-slug: ${{ env.OWNER_SLUG }}
+          paths: blocks/private/**
+          private: true
+          api-key: ${{ secrets.CONTINUE_API_KEY }}
+
+      # Private assistants
+      - uses: continuedev/continue-publish-action@v1
+        with:
+          owner-slug: ${{ env.OWNER_SLUG }}
+          paths: assistants/private/**
+          is-assistant: true
+          private: true
+          api-key: ${{ secrets.CONTINUE_API_KEY }}
