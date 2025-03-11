@@ -1,0 +1,78 @@
+# YAML Lint Configuration
+# This configuration is tailored for the together.ai model generator
+
+extends: default
+
+rules:
+  # Disable line length check - many Together.ai model descriptions
+  # and configuration strings can be quite long
+  line-length: disable
+  
+  # Allow more spaces for document and sequence indentation
+  # The goal is to have readable YAML files
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+  
+  # Allowing comments to start without space for better code documentation
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 1
+  
+  # Key validation rules
+  key-duplicates: enable
+  key-ordering: disable
+  
+  # Relaxed truthy values (yes, no, true, false, on, off)
+  truthy:
+    allowed-values: ['true', 'false', 'yes', 'no', 'on', 'off']
+    check-keys: false
+  
+  # Document verification
+  document-start: enable   # Require --- at start (our files use frontmatter style)
+  document-end: disable    # Don't require ... at end
+  
+  # Relaxing some rules that can be noisy
+  empty-lines:
+    max: 2
+    max-start: 0
+    max-end: 0
+  
+  # Required newline at end of files
+  new-line-at-end-of-file: enable
+  
+  # Trailing spaces handling
+  trailing-spaces: enable
+  
+  # Don't complain about non-breaking spaces
+  new-lines: enable
+  
+  # Be strict about empty values
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+  
+  # Quotes consistency
+  quoted-strings:
+    quote-type: any
+    required: false
+    
+  # Other formatting rules  
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  commas:
+    max-spaces-before: 0
+    min-spaces-after: 1
+    max-spaces-after: 1
+
+# Ignoring some files that might be in the directory
+ignore: |
+  .git/
+  venv/
+  __pycache__/
+  *.pyc
