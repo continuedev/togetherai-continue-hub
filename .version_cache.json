@@ -1,0 +1,386 @@
+{
+  "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-p": {
+    "hash": "e6da20285024133af051b37d3c4c583d",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.1-8b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.1 8B Instruct Turbo"
+  },
+  "WhereIsAI/UAE-Large-V1": {
+    "hash": "2aeec3ad58ec75383ed03894b923abaa",
+    "version": "1.0.0",
+    "filename": "uae-large-v1.yaml",
+    "display_name": "UAE-Large-V1"
+  },
+  "google/gemma-2-27b-it": {
+    "hash": "f6a26e803ce5090343b2a42863468413",
+    "version": "1.0.0",
+    "filename": "gemma-2-instruct-27b.yaml",
+    "display_name": "Gemma-2 Instruct (27B)"
+  },
+  "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo": {
+    "hash": "6266ff6f567c98c701715e8b31075a89",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.1-405b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.1 405B Instruct Turbo"
+  },
+  "meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo": {
+    "hash": "ca13379b42dffa35b8503eef725a3bb5",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.2-90b-vision-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.2 90B Vision Instruct Turbo"
+  },
+  "meta-llama/Meta-Llama-3-70B-Instruct-Turbo": {
+    "hash": "05d3d716d1ec15730d7cd7101c206edd",
+    "version": "1.0.0",
+    "filename": "meta-llama-3-70b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3 70B Instruct Turbo"
+  },
+  "togethercomputer/m2-bert-80M-32k-retrieval": {
+    "hash": "411d7ef4f0acb44c59b0147c27e23732",
+    "version": "1.0.0",
+    "filename": "m2-bert-retrieval-32k.yaml",
+    "display_name": "M2-BERT-Retrieval-32k"
+  },
+  "BAAI/bge-large-en-v1.5": {
+    "hash": "c4a81d1b44413c13a931a5e060d8b651",
+    "version": "1.0.0",
+    "filename": "baai-bge-large-1p5.yaml",
+    "display_name": "BAAI-Bge-Large-1p5"
+  },
+  "Qwen/Qwen2-VL-72B-Instruct": {
+    "hash": "28d6d5f2ad5d2735dea19983f64e92ca",
+    "version": "1.0.0",
+    "filename": "qwen2-vl-72b-instruct.yaml",
+    "display_name": "Qwen2-VL (72B) Instruct"
+  },
+  "mistralai/Mistral-7B-v0.1": {
+    "hash": "895aa4a242e5f01fc1948ebd4cf20781",
+    "version": "1.0.0",
+    "filename": "mistral-7b.yaml",
+    "display_name": "Mistral (7B)"
+  },
+  "meta-llama/Llama-Vision-Free": {
+    "hash": "7c444af85423c8432bc2998efc6bf434",
+    "version": "1.0.0",
+    "filename": "meta-llama-vision-free.yaml",
+    "display_name": "Meta Llama Vision Free"
+  },
+  "meta-llama-llama-2-70b-hf": {
+    "hash": "afe6653a0fc929d0efdb977a94f91f4f",
+    "version": "1.0.0",
+    "filename": "llama-2-70b.yaml",
+    "display_name": "LLaMA-2 (70B)"
+  },
+  "deepseek-ai/DeepSeek-R1": {
+    "hash": "b641a41a63e5e7d2a3d4d603c2b72631",
+    "version": "1.0.0",
+    "filename": "deepseek-r1.yaml",
+    "display_name": "DeepSeek R1"
+  },
+  "Gryphe/MythoMax-L2-13b": {
+    "hash": "65b0b4ed39b4a2dad7be7b883a0698db",
+    "version": "1.0.0",
+    "filename": "mythomax-l2-13b.yaml",
+    "display_name": "MythoMax-L2 (13B)"
+  },
+  "Qwen/Qwen2.5-72B-Instruct-Turbo": {
+    "hash": "d97a0da960af3dac50926ac8bd2a8cde",
+    "version": "1.0.0",
+    "filename": "qwen2.5-72b-instruct-turbo.yaml",
+    "display_name": "Qwen2.5 72B Instruct Turbo"
+  },
+  "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free": {
+    "hash": "a999d5b09ce44b0a6c51e00ac756e076",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.3-70b-instruct-turbo-free.yaml",
+    "display_name": "Meta Llama 3.3 70B Instruct Turbo Free"
+  },
+  "meta-llama/Meta-Llama-3-8B-Instruct-Lite": {
+    "hash": "9eacb9064aceda23d70b2fc3d950c5d7",
+    "version": "1.0.0",
+    "filename": "meta-llama-3-8b-instruct-lite.yaml",
+    "display_name": "Meta Llama 3 8B Instruct Lite"
+  },
+  "mistralai/Mistral-Small-24B-Instruct-2501": {
+    "hash": "c405fd40b542611817082161a08de1fd",
+    "version": "1.0.0",
+    "filename": "mistral-small-24b-instruct-25.01.yaml",
+    "display_name": "Mistral Small (24B) Instruct 25.01"
+  },
+  "mistralai/Mixtral-8x22B-Instruct-v0.1": {
+    "hash": "fcd60c8dc08fa2937c6bf96938bb5110",
+    "version": "1.0.0",
+    "filename": "mixtral-8x22b-instruct-v0.1.yaml",
+    "display_name": "Mixtral-8x22B Instruct v0.1"
+  },
+  "meta-llama/Meta-Llama-3-8B-Instruct-Turbo": {
+    "hash": "ad01930fb13c593b0cdad996b3af023f",
+    "version": "1.0.0",
+    "filename": "meta-llama-3-8b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3 8B Instruct Turbo"
+  },
+  "NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO": {
+    "hash": "2b70bc855ede98c599030003e36a15ca",
+    "version": "1.0.0",
+    "filename": "nous-hermes-2-mixtral-8x7b-dpo-.yaml",
+    "display_name": "Nous Hermes 2 - Mixtral 8x7B-DPO "
+  },
+  "togethercomputer/m2-bert-80M-8k-retrieval": {
+    "hash": "14094743f4f2e5c55cf357f72fdc4e6e",
+    "version": "1.0.0",
+    "filename": "m2-bert-retrieval-8k.yaml",
+    "display_name": "M2-BERT-Retrieval-8k"
+  },
+  "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-classifier": {
+    "hash": "87b384b77d1e806a15761592262b6035",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.1-8b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.1 8B Instruct Turbo"
+  },
+  "meta-llama/Llama-2-70b-hf": {
+    "hash": "9a9e9f0a1cd91fbdf4e894480e668cd1",
+    "version": "1.0.0",
+    "filename": "llama-2-70b.yaml",
+    "display_name": "LLaMA-2 (70B)"
+  },
+  "deepseek-ai/DeepSeek-V3": {
+    "hash": "cf1d379b5d93b6c3c2b91ccf1f53f8a6",
+    "version": "1.0.0",
+    "filename": "deepseek-v3.yaml",
+    "display_name": "DeepSeek V3"
+  },
+  "Qwen/Qwen2-72B-Instruct": {
+    "hash": "3b8597918485c421a785d8058af4fb79",
+    "version": "1.0.0",
+    "filename": "qwen-2-instruct-72b.yaml",
+    "display_name": "Qwen 2 Instruct (72B)"
+  },
+  "upstage/SOLAR-10.7B-Instruct-v1.0": {
+    "hash": "da757a25af07e7ab47b0c0d24c3ff532",
+    "version": "1.0.0",
+    "filename": "upstage-solar-instruct-v1-11b.yaml",
+    "display_name": "Upstage SOLAR Instruct v1 (11B)"
+  },
+  "togethercomputer/MoA-1": {
+    "hash": "63aa238bb2ba3cfafdc5fbd63dabed98",
+    "version": "1.0.0",
+    "filename": "together-ai-moa-1.yaml",
+    "display_name": "Together AI MoA-1"
+  },
+  "deepseek-ai/DeepSeek-R1-Distill-Llama-70B": {
+    "hash": "d40b55ebace05414faff5170746c1e76",
+    "version": "1.0.0",
+    "filename": "deepseek-r1-distill-llama-70b.yaml",
+    "display_name": "DeepSeek R1 Distill Llama 70B"
+  },
+  "Qwen/QwQ-32B-Preview": {
+    "hash": "645268be9f85dd27727bb646ff8fcbfc",
+    "version": "1.0.0",
+    "filename": "qwen-qwq-32b-preview.yaml",
+    "display_name": "Qwen QwQ-32B-Preview"
+  },
+  "scb10x/scb10x-llama3-typhoon-v1-5x-4f316": {
+    "hash": "510cd115daad59087ce12e45da37c7bd",
+    "version": "1.0.0",
+    "filename": "typhoon-1.5x-70b-awq.yaml",
+    "display_name": "Typhoon 1.5X 70B-awq"
+  },
+  "deepseek-ai/DeepSeek-V3-p-dp": {
+    "hash": "c6edb092c39796ba81e1a12777a5222a",
+    "version": "1.0.0",
+    "filename": "deepseek-v3.yaml",
+    "display_name": "DeepSeek V3"
+  },
+  "mistralai/Mistral-7B-Instruct-v0.2": {
+    "hash": "2b29a5be988cb569cdf9c05cee5461bf",
+    "version": "1.0.0",
+    "filename": "mistral-7b-instruct-v0.2.yaml",
+    "display_name": "Mistral (7B) Instruct v0.2"
+  },
+  "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free": {
+    "hash": "4ed40a9737503882f836cc022d6e96a4",
+    "version": "1.0.0",
+    "filename": "deepseek-r1-distill-llama-70b-free.yaml",
+    "display_name": "DeepSeek R1 Distill Llama 70B Free"
+  },
+  "togethercomputer/m2-bert-80M-2k-retrieval": {
+    "hash": "dfb38810e26efb29561b7cff427269ea",
+    "version": "1.0.0",
+    "filename": "m2-bert-retrieval-2k.yaml",
+    "display_name": "M2-BERT-Retrieval-2K"
+  },
+  "meta-llama/Llama-3-8b-chat-hf": {
+    "hash": "a33c103a0e9e629975c541eff72a98d1",
+    "version": "1.0.0",
+    "filename": "meta-llama-3-8b-instruct-reference.yaml",
+    "display_name": "Meta Llama 3 8B Instruct Reference"
+  },
+  "google/gemma-2b-it": {
+    "hash": "325cb89f1c15f93758bcabccb866bf08",
+    "version": "1.0.0",
+    "filename": "gemma-instruct-2b.yaml",
+    "display_name": "Gemma Instruct (2B)"
+  },
+  "Qwen/QwQ-32B": {
+    "hash": "82e9199e6c944f696607d7d98156ef33",
+    "version": "1.0.0",
+    "filename": "qwen-qwq-32b.yaml",
+    "display_name": "Qwen QwQ-32B"
+  },
+  "google/gemma-2-9b-it": {
+    "hash": "6572a2754f9a7c0204b8a9683bc2c3e3",
+    "version": "1.0.0",
+    "filename": "gemma-2-instruct-9b.yaml",
+    "display_name": "Gemma-2 Instruct (9B)"
+  },
+  "Gryphe/MythoMax-L2-13b-Lite": {
+    "hash": "4e0e675e4e4c26d0cfb6b4931bbc16c9",
+    "version": "1.0.0",
+    "filename": "gryphe-mythomax-l2-lite-13b.yaml",
+    "display_name": "Gryphe MythoMax L2 Lite (13B)"
+  },
+  "scb10x/scb10x-llama3-1-typhoon2-60256": {
+    "hash": "86fc3ce9bbd4301e64a3e225ce3b3611",
+    "version": "1.0.0",
+    "filename": "typhoon-2-70b-instruct.yaml",
+    "display_name": "Typhoon 2 70B Instruct"
+  },
+  "scb10x/scb10x-llama3-1-typhoon-18370": {
+    "hash": "94bb44e0b6d5aa14be6b66b66c315496",
+    "version": "1.0.0",
+    "filename": "typhoon-2-8b-instruct.yaml",
+    "display_name": "Typhoon 2 8B Instruct"
+  },
+  "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo": {
+    "hash": "2a9008088e3c40f4c4cdb399660f6295",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.1-70b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.1 70B Instruct Turbo"
+  },
+  "meta-llama/Llama-3.3-70B-Instruct-Turbo": {
+    "hash": "74b17b8ab8689ee49fe5fef838548640",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.3-70b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.3 70B Instruct Turbo"
+  },
+  "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo": {
+    "hash": "74d3545027a75296b726b603c70ff975",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.1-8b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.1 8B Instruct Turbo"
+  },
+  "BAAI/bge-base-en-v1.5": {
+    "hash": "9ecb9fbb09957b98b2839536ee04c1d4",
+    "version": "1.0.0",
+    "filename": "baai-bge-base-1.5.yaml",
+    "display_name": "BAAI-Bge-Base-1.5"
+  },
+  "mistralai/Mixtral-8x7B-v0.1": {
+    "hash": "8cee0bf6885699ae39e4971ad6451b76",
+    "version": "1.0.0",
+    "filename": "mixtral-8x7b-v0.1.yaml",
+    "display_name": "Mixtral-8x7B v0.1"
+  },
+  "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
+    "hash": "55794377281c3cfc007b7ce346327340",
+    "version": "1.0.0",
+    "filename": "deepseek-r1-distill-qwen-1.5b.yaml",
+    "display_name": "DeepSeek R1 Distill Qwen 1.5B"
+  },
+  "meta-llama/Llama-2-13b-chat-hf": {
+    "hash": "0795e8037a708cd25df5b8d7f6ed4db8",
+    "version": "1.0.0",
+    "filename": "llama-2-chat-13b.yaml",
+    "display_name": "LLaMA-2 Chat (13B)"
+  },
+  "scb10x/scb10x-llama3-typhoon-v1-5-8b-instruct": {
+    "hash": "750a4b3a5dab71bf6032e905b4e6c094",
+    "version": "1.0.0",
+    "filename": "typhoon-1.5-8b-instruct.yaml",
+    "display_name": "Typhoon 1.5 8B Instruct"
+  },
+  "databricks/dbrx-instruct": {
+    "hash": "cbec5b01ba2854d4738ed143d04e9738",
+    "version": "1.0.0",
+    "filename": "dbrx-instruct.yaml",
+    "display_name": "DBRX Instruct"
+  },
+  "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF": {
+    "hash": "df4fadee41505bc4a841aa34c7d76072",
+    "version": "1.0.0",
+    "filename": "llama-3.1-nemotron-70b-instruct-hf.yaml",
+    "display_name": "Llama 3.1 Nemotron 70B Instruct HF"
+  },
+  "Qwen/Qwen2.5-Coder-32B-Instruct": {
+    "hash": "6291b16b8ee65a10f0c44f3e6b9f1efc",
+    "version": "1.0.0",
+    "filename": "qwen-2.5-coder-32b-instruct.yaml",
+    "display_name": "Qwen 2.5 Coder 32B Instruct"
+  },
+  "microsoft/WizardLM-2-8x22B": {
+    "hash": "19a0dbfad60aac4cfd4dfb4f023bb69d",
+    "version": "1.0.0",
+    "filename": "wizardlm-2-8x22b.yaml",
+    "display_name": "WizardLM-2 (8x22B)"
+  },
+  "mistralai/Mistral-7B-Instruct-v0.3": {
+    "hash": "c539f9ce9ae963473486783fea59fda2",
+    "version": "1.0.0",
+    "filename": "mistral-7b-instruct-v0.3.yaml",
+    "display_name": "Mistral (7B) Instruct v0.3"
+  },
+  "Qwen/Qwen2.5-7B-Instruct-Turbo": {
+    "hash": "a72a5812062c6b4dac0ac3ccbf3f0c68",
+    "version": "1.0.0",
+    "filename": "qwen2.5-7b-instruct-turbo.yaml",
+    "display_name": "Qwen2.5 7B Instruct Turbo"
+  },
+  "meta-llama/Llama-3.2-3B-Instruct-Turbo": {
+    "hash": "666233d145e14d3d1c6d24edef5eef46",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.2-3b-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.2 3B Instruct Turbo"
+  },
+  "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo": {
+    "hash": "3d6068b0105311171cf88373da708794",
+    "version": "1.0.0",
+    "filename": "meta-llama-3.2-11b-vision-instruct-turbo.yaml",
+    "display_name": "Meta Llama 3.2 11B Vision Instruct Turbo"
+  },
+  "Salesforce/Llama-Rank-V1": {
+    "hash": "7726ce80d13863e5956aa779f1eb4885",
+    "version": "1.0.0",
+    "filename": "salesforce-llama-rank-v1-8b.yaml",
+    "display_name": "Salesforce Llama Rank V1 (8B)"
+  },
+  "meta-llama/Llama-3-70b-chat-hf": {
+    "hash": "9cf001f82b3ff544e9d06ccbe1fde50c",
+    "version": "1.0.0",
+    "filename": "meta-llama-3-70b-instruct-reference.yaml",
+    "display_name": "Meta Llama 3 70B Instruct Reference"
+  },
+  "mistralai/Mixtral-8x7B-Instruct-v0.1": {
+    "hash": "3ee15abcfdc43f00f12609f7d8202d92",
+    "version": "1.0.0",
+    "filename": "mixtral-8x7b-instruct-v0.1.yaml",
+    "display_name": "Mixtral-8x7B Instruct v0.1"
+  },
+  "togethercomputer/MoA-1-Turbo": {
+    "hash": "92d0df1eb6659293148c74d64dcba660",
+    "version": "1.0.0",
+    "filename": "together-ai-moa-1-turbo.yaml",
+    "display_name": "Together AI MoA-1-Turbo"
+  },
+  "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": {
+    "hash": "a975816e7fdb5b4e1f8639169e7126a1",
+    "version": "1.0.0",
+    "filename": "deepseek-r1-distill-qwen-14b.yaml",
+    "display_name": "DeepSeek R1 Distill Qwen 14B"
+  },
+  "mistralai/Mistral-7B-Instruct-v0.1": {
+    "hash": "0694afb87c99bdcc785862859a9ef2fc",
+    "version": "1.0.0",
+    "filename": "mistral-7b-instruct.yaml",
+    "display_name": "Mistral (7B) Instruct"
+  }
+}

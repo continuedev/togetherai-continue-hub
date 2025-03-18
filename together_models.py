@@ -309,6 +309,7 @@ def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR, version_cache=No
     # contextLength represents the maximum number of tokens the model can process in a single request
     # This is important for Continue to know the model's capabilities and optimize prompt construction
     context_length = model_data.get('context_length', 0)
+    model_type = model_data.get('type', '')
     if context_length > 0:
         yaml_content['models'][0]['defaultCompletionOptions'] = {
             'contextLength': context_length
@@ -320,6 +321,41 @@ def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR, version_cache=No
     yaml_content['models'][0]['roles'] = roles
     
     # Only write file if it's new or updated
+    # Gather change information for updated models
+    change_details = {}
+    if status == "updated" and model_id in version_cache:
+        # Get previous version info if available
+        prev_filename = version_cache[model_id].get('filename')
+        prev_filepath = os.path.join(output_dir, prev_filename) if prev_filename else None
+        
+        # Compare roles if the previous file exists
+        if prev_filepath and os.path.exists(prev_filepath):
+            prev_yaml = parse_existing_yaml(prev_filepath)
+            if prev_yaml and 'models' in prev_yaml and len(prev_yaml['models']) > 0:
+                prev_model = prev_yaml['models'][0]
+                prev_roles = prev_model.get('roles', [])
+                
+                # Check for role changes
+                added_roles = [r for r in roles if r not in prev_roles]
+                removed_roles = [r for r in prev_roles if r not in roles]
+                
+                if added_roles or removed_roles:
+                    change_details['roles'] = {
+                        'added': added_roles,
+                        'removed': removed_roles
+                    }
+                
+                # Check for context length changes
+                prev_context_length = None
+                if 'defaultCompletionOptions' in prev_model:
+                    prev_context_length = prev_model['defaultCompletionOptions'].get('contextLength')
+                
+                if prev_context_length != context_length and context_length > 0:
+                    change_details['contextLength'] = {
+                        'old': prev_context_length,
+                        'new': context_length
+                    }
+    
     if status != "unchanged":
         # Validate YAML content
         validation_errors = validate_yaml_content(yaml_content)
@@ -430,6 +466,9 @@ def main():
         "updated": [],
         "unchanged": []
     }
+    model_changes = {}
+    # For tracking detailed changes
+    model_prev_roles = {}
     role_counter = Counter()
     model_types = Counter()
     model_by_role = defaultdict(list)
@@ -466,6 +505,10 @@ def main():
             filepath, name, roles, model_type, status, version = result
             created_files.append((filepath, name))
             model_status[status].append((name, version))
+            
+            # Store change details for updated models
+            if status == "updated" and change_details:
+                model_status[status][-1] = (name, version, change_details)
             
             # Update statistics
             for role in roles:
@@ -535,8 +578,27 @@ def main():
         
         if model_status['updated']:
             logger.info("\nUpdated models:")
-            for model, version in model_status['updated']:
-                logger.info(f"  - {model} (v{version})")
+            for item in model_status['updated']:
+                if len(item) == 3:  # We have change details
+                    model, version, changes = item
+                    logger.info(f"  - {model} (v{version})")
+                    
+                    # Print role changes
+                    if 'roles' in changes:
+                        if changes['roles']['added']:
+                            logger.info(f"    - Added roles: {', '.join(changes['roles']['added'])}")
+                        if changes['roles']['removed']:
+                            logger.info(f"    - Removed roles: {', '.join(changes['roles']['removed'])}")
+                    
+                    # Print context length changes
+                    if 'contextLength' in changes:
+                        old = changes['contextLength']['old'] or 'none'
+                        new = changes['contextLength']['new']
+                        logger.info(f"    - Context length: {old} → {new}")
+                else:
+                    model, version = item
+                    logger.info(f"  - {model} (v{version})")
+
     
     return 0
 

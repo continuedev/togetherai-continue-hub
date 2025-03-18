@@ -12,7 +12,7 @@ The main script `together_models.py` fetches model information from the Together
 - 📊 **Version Tracking**: Maintains semantic versioning for each model YAML file
 - 🔍 **Change Detection**: Only updates YAMLs when model configuration changes
 - 🛠️ **Role Assignment**: Intelligently assigns appropriate roles based on model capabilities
-- 📝 **Pull Request Generation**: Automatically creates PRs for model updates
+- 📝 **Detailed PR Generation**: Automatically creates PRs with comprehensive change details
 
 ## Model Role Logic
 
@@ -62,7 +62,14 @@ A GitHub Actions workflow is set up to run the script nightly:
 1. Fetches the latest model data from Together.ai
 2. Updates YAML configurations as needed
 3. Increments version numbers for changed models
-4. Creates a pull request with the changes
+4. Creates a pull request with detailed change information:
+   - Lists all newly added models
+   - Lists all updated models with their new version numbers
+   - Shows detailed changes for each updated model:
+     - Added/removed roles
+     - Context length changes
+
+This detailed PR format makes it much easier to review what's changing in each update.
 
 ## Testing
 
