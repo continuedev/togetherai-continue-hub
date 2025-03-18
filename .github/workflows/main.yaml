@@ -10,7 +10,7 @@ on:
       - .github/workflows/main.yaml
 
 env:
-  OWNER_SLUG: my-org-slug # <-- TODO
+  OWNER_SLUG: togetherai
 
 jobs:
   publish:
