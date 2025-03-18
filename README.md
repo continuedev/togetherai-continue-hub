@@ -6,6 +6,14 @@ This repository contains scripts to automatically generate YAML configurations f
 
 The main script `together_models.py` fetches model information from the Together.ai API and generates YAML configuration files for use with Continue 1.0 blocks. It assigns appropriate roles to models based on their capabilities and characteristics, while excluding image, audio, and moderation models that aren't typically needed for development assistance.
 
+## Key Features
+
+- 🔄 **Automatic Updates**: Runs nightly to capture new models as they become available
+- 📊 **Version Tracking**: Maintains semantic versioning for each model YAML file
+- 🔍 **Change Detection**: Only updates YAMLs when model configuration changes
+- 🛠️ **Role Assignment**: Intelligently assigns appropriate roles based on model capabilities
+- 📝 **Pull Request Generation**: Automatically creates PRs for model updates
+
 ## Model Role Logic
 
 Models are assigned roles based on:
@@ -14,21 +22,15 @@ Models are assigned roles based on:
 2. **Context length**: Models with context length >= 8192 are assigned the 'apply' role for more complex tasks
 3. **Autocomplete role**: Only assigned to models in a curated list (AUTOCOMPLETE_MODELS) to ensure fast performance
 
-## Autocomplete Role Configuration
+## Versioning
 
-The `AUTOCOMPLETE_MODELS` list in `together_models.py` defines which models get the autocomplete role. Criteria for inclusion:
+The generator maintains semantic versioning for each YAML configuration:
 
-1. Should be fast (generally <8B parameters)
-2. Must have sufficient context window (>= 8192 tokens for larger code samples)
-3. Good performance on code completion and general assistance tasks
+- **Major version**: Incremented for backward-incompatible changes
+- **Minor version**: Incremented when model properties change (roles, context window, etc.)
+- **Patch version**: Incremented for minor fixes or updates
 
-Current autocomplete friendly models include:
-- **Phi-3 series (Microsoft)**: Fast and efficient models
-- **CodeLlama models (Meta)**: Specialized for code completion tasks
-- **Meta Llama 3 models (8B variants only)**: Good balance of capabilities and speed
-- **Google Gemma models (2B/9B)**: Lightweight models for quick responses
-- **Mistral models (7B variants)**: Efficient open models with good performance
-- **Other small but capable models**: TinyLlama, Qwen variants, etc.
+When a model's configuration changes (different roles, context length, etc.), the minor version is automatically incremented.
 
 ## Usage
 
@@ -39,8 +41,8 @@ python together_models.py --api-key YOUR_API_KEY [options]
 # Or use a previously downloaded JSON file
 python together_models.py --input-file together_api_response.json [options]
 
-# Run tests on model role assignment
-python run_test.py
+# Run with summary statistics
+python together_models.py --summary
 ```
 
 ### Options
@@ -50,27 +52,36 @@ python run_test.py
 - `--output-dir DIR`: Output directory for YAML files (default: ./blocks/public)
 - `--skip-free`: Skip free models (models with zero pricing)
 - `--summary`: Print summary statistics
+- `--force-regenerate`: Force regeneration of all YAML files
 - `--help`: Show help message and exit
 
-Note: Image, audio, and moderation models are automatically excluded regardless of other options.
+## GitHub Workflow
+
+A GitHub Actions workflow is set up to run the script nightly:
+
+1. Fetches the latest model data from Together.ai
+2. Updates YAML configurations as needed
+3. Increments version numbers for changed models
+4. Creates a pull request with the changes
 
 ## Testing
 
-Run the included test script to validate model role assignments:
+Use the included test script to validate model role assignments:
 
 ```bash
-python run_test.py
+python test_all.py
 ```
 
-You can also run a simplified test specifically for autocomplete model assignment:
-
-```bash
-python run_final.py
-```
-
-These tests check that:
+This tests that:
 - Only models in the AUTOCOMPLETE_MODELS list get the autocomplete role
 - Models with context length < 8192 don't get the 'apply' role
 - Image, audio, and moderation models are correctly identified for exclusion
-- Verify which models from your list are available in the data
-- Display statistics about role distributions
+
+## Contributing
+
+To contribute or modify the model role logic:
+
+1. Update the `AUTOCOMPLETE_MODELS` list in `together_models.py` to add or remove models eligible for the autocomplete role
+2. Modify the `determine_roles` function to change how roles are assigned
+3. Run the script locally to test your changes
+4. Submit a PR with the updated script and YAML files

@@ -5,6 +5,9 @@ __pycache__/
 *.so
 .Python
 
+blocks/public/together_api_response.json
+blocks/test
+
 # Virtual environments
 venv/
 ENV/

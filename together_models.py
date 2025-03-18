@@ -5,6 +5,11 @@ Together.ai Models Utility Script
 Fetches model information from Together.ai API and generates YAML configuration files
 for use with Continue 1.0 blocks.
 
+This version adds:
+1. Version tracking for each model (incremented when model configuration changes)
+2. Change detection to update YAML files only when necessary
+3. Summary reporting of added/modified/unchanged models
+
 Usage:
     python together_models.py [options]
 
@@ -23,13 +28,29 @@ import os
 import re
 import sys
 import yaml
+import hashlib
 from collections import Counter, defaultdict
 from datetime import datetime
 import requests
+import logging
+from pathlib import Path
+import semver
+
+
+# Set up logging to stdout only
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+    ],
+)
+logger = logging.getLogger(__name__)
 
 # Configuration
 DEFAULT_OUTPUT_DIR = "./blocks/public"
 TOGETHER_API_URL = "https://api.together.xyz/v1/models"
+VERSION_CACHE_FILE = ".version_cache.json"
 
 # Models configuration
 # Models that should be assigned the autocomplete role
@@ -38,8 +59,6 @@ TOGETHER_API_URL = "https://api.together.xyz/v1/models"
 #  2. Must have sufficient context window (>= 8192 tokens for larger code samples)
 #  3. Good performance on code completion and general assistance tasks
 AUTOCOMPLETE_MODELS = [
-
-    
     # Meta Llama 3 models (8B variants only)
     "Meta Llama 3 8B Instruct Lite",
     "Meta Llama 3 8B Instruct Turbo",
@@ -86,8 +105,8 @@ def determine_roles(model_data):
     
     # Type-to-role mapping (based on analysis of Together's model catalog)
     type_to_role = {
-        'chat': ['chat', 'edit'],
-        'language': ['chat', 'edit'],  # Removed apply and autocomplete as defaults
+        'chat': ['chat'],
+        'language': ['chat'],  # Removed apply and autocomplete as defaults
         'embedding': ['embed'],
         'rerank': ['rerank'],
         'image': ['image'],
@@ -105,6 +124,8 @@ def determine_roles(model_data):
         context_length = model_data.get('context_length', 0)
         if context_length >= 8192 and 'apply' not in roles:  
             roles.append('apply')
+        if context_length >= 8192 and 'edit' not in roles:  
+            roles.append('edit')
     
     # Add autocomplete role based on the predefined list
     model_id = model_data.get('id', '')
@@ -123,9 +144,106 @@ class IndentDumper(yaml.Dumper):
     def increase_indent(self, flow=False, indentless=False):
         return super(IndentDumper, self).increase_indent(flow, False)
 
+def load_version_cache():
+    """Load version cache from file if it exists, otherwise return empty dict."""
+    if os.path.exists(VERSION_CACHE_FILE):
+        try:
+            with open(VERSION_CACHE_FILE, 'r') as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            logger.warning(f"Error parsing version cache file. Creating new cache.")
+            return {}
+    return {}
 
-def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR):
-    """Create a YAML file for a single model."""
+def save_version_cache(cache):
+    """Save version cache to file."""
+    with open(VERSION_CACHE_FILE, 'w') as f:
+        json.dump(cache, f, indent=2)
+
+def validate_yaml_content(yaml_content):
+    """Validate that the YAML content meets Continue requirements."""
+    errors = []
+    
+    # Required top-level fields
+    required_fields = ['name', 'version', 'schema', 'models']
+    for field in required_fields:
+        if field not in yaml_content:
+            errors.append(f"Missing required top-level field: {field}")
+    
+    # Check schema version
+    if yaml_content.get('schema') != 'v1':
+        errors.append(f"Invalid schema version: {yaml_content.get('schema')} (expected 'v1')")
+    
+    # Check models array
+    models = yaml_content.get('models', [])
+    if not models or not isinstance(models, list):
+        errors.append("'models' must be a non-empty array")
+    else:
+        for i, model in enumerate(models):
+            # Required model fields
+            model_required_fields = ['name', 'provider', 'model', 'apiKey']
+            for field in model_required_fields:
+                if field not in model:
+                    errors.append(f"Model #{i+1}: Missing required field: {field}")
+            
+            # Provider should be 'together'
+            if model.get('provider') != 'together':
+                errors.append(f"Model #{i+1}: Provider should be 'together', got: {model.get('provider')}")
+            
+            # Roles should be a non-empty array
+            roles = model.get('roles', [])
+            if not roles or not isinstance(roles, list):
+                errors.append(f"Model #{i+1}: 'roles' must be a non-empty array")
+    
+    # Return None if no errors, or the list of errors
+    return errors if errors else None
+
+
+def generate_model_hash(model_data):
+    """Generate a hash of the model data to detect changes."""
+    # Create a simplified model data dictionary with only the fields we care about
+    simplified_data = {
+        'id': model_data.get('id', ''),
+        'display_name': model_data.get('display_name', ''),
+        'type': model_data.get('type', ''),
+        'context_length': model_data.get('context_length', 0),  # Include context_length for version change detection
+        'pricing': model_data.get('pricing', {})
+    }
+    # Convert to string and hash
+    data_str = json.dumps(simplified_data, sort_keys=True)
+    return hashlib.md5(data_str.encode()).hexdigest()
+
+def parse_existing_yaml(filepath):
+    """Parse existing YAML file to extract current version."""
+    try:
+        with open(filepath, 'r') as file:
+            content = file.read()
+            # Extract YAML content between the --- markers
+            match = re.search(r'^---\n(.*?)$', content, re.DOTALL | re.MULTILINE)
+            if match:
+                yaml_content = match.group(1)
+                try:
+                    data = yaml.safe_load(yaml_content)
+                    return data
+                except yaml.YAMLError:
+                    logger.warning(f"Error parsing YAML in {filepath}")
+                    return None
+    except (IOError, FileNotFoundError):
+        logger.warning(f"Could not read file {filepath}")
+    return None
+
+def increment_version(current_version):
+    """Increment the minor version of the semantic version string."""
+    try:
+        version_info = semver.VersionInfo.parse(current_version)
+        return str(version_info.bump_minor())
+    except ValueError:
+        # If the version is not a valid semver, default to 1.0.0
+        logger.warning(f"Invalid version format: {current_version}. Resetting to 1.0.0")
+        return "1.0.0"
+
+def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR, version_cache=None):
+    """Create a YAML file for a single model with version tracking."""
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
     
@@ -139,13 +257,43 @@ def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR):
     if not model_id:
         return None  # Skip if no model ID
     
+    # Generate filename
+    filename = sanitize_filename(display_name) + '.yaml'
+    filepath = os.path.join(output_dir, filename)
+    
     # Determine roles
     roles = determine_roles(model_data)
     
-    # Create YAML content
+    # Check if file already exists and determine version
+    current_hash = generate_model_hash(model_data)
+    version = "1.0.0"  # Default version
+    status = "created"
+    
+    if version_cache is None:
+        version_cache = {}
+    
+    # Check if we have this model in our cache
+    if model_id in version_cache:
+        prev_hash = version_cache[model_id]['hash']
+        prev_version = version_cache[model_id]['version']
+        
+        # If the hash has changed, increment the version
+        if current_hash != prev_hash:
+            version = increment_version(prev_version)
+            status = "updated"
+        else:
+            # No changes, keep the same version
+            version = prev_version
+            status = "unchanged"
+    else:
+        # New model, start with version 1.0.0
+        status = "created"
+    
+    # Create YAML content with keys in the desired order
+    # Since Python 3.7+, regular dictionaries preserve insertion order
     yaml_content = {
         'name': display_name,
-        'version': '1.0.0',
+        'version': version,
         'schema': 'v1',
         'models': [
             {
@@ -153,24 +301,52 @@ def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR):
                 'provider': 'together',
                 'model': model_id,
                 'apiKey': '${{ inputs.TOGETHER_API_KEY }}',
-                'roles': roles
             }
         ]
     }
     
-    # Generate filename
-    filename = sanitize_filename(display_name) + '.yaml'
-    filepath = os.path.join(output_dir, filename)
+    # Add defaultCompletionOptions with contextLength if available
+    # contextLength represents the maximum number of tokens the model can process in a single request
+    # This is important for Continue to know the model's capabilities and optimize prompt construction
+    context_length = model_data.get('context_length', 0)
+    if context_length > 0:
+        yaml_content['models'][0]['defaultCompletionOptions'] = {
+            'contextLength': context_length
+        }
+    elif model_type in ['chat', 'language']:  # Only warn for models that typically need context windows
+        logger.warning(f"No context_length found for {display_name} ({model_id}), defaultCompletionOptions will be omitted")
     
-    # Write YAML file with frontmatter, handling indentation manually
-    with open(filepath, 'w') as file:
-        file.write('---\n')  # Start frontmatter
-        # Configure the YAML dumper to use 2-space indentation
-        yaml.dump(yaml_content, file, Dumper=IndentDumper, default_flow_style=False, sort_keys=False, indent=2)
+    # Add roles last to maintain desired order
+    yaml_content['models'][0]['roles'] = roles
     
-    print(f"Created YAML for {display_name}")
-    return filepath, display_name, roles, model_data.get('type', 'unknown')
-
+    # Only write file if it's new or updated
+    if status != "unchanged":
+        # Validate YAML content
+        validation_errors = validate_yaml_content(yaml_content)
+        if validation_errors:
+            logger.error(f"Validation errors for {display_name}:")
+            for error in validation_errors:
+                logger.error(f"  - {error}")
+            logger.error(f"Skipping generation of {filepath}")
+            return None
+        
+        # Write YAML file with frontmatter
+        with open(filepath, 'w') as file:
+            file.write('---\n')  # Start frontmatter
+            # Configure the YAML dumper to use 2-space indentation
+            yaml.dump(yaml_content, file, Dumper=IndentDumper, default_flow_style=False, sort_keys=False, indent=2)
+        
+        logger.info(f"{status.capitalize()} YAML for {display_name} (version {version})")
+    
+    # Update cache with new hash and version
+    version_cache[model_id] = {
+        'hash': current_hash,
+        'version': version,
+        'filename': filename,
+        'display_name': display_name
+    }
+    
+    return filepath, display_name, roles, model_data.get('type', 'unknown'), status, version
 
 def fetch_models_data(api_key):
     """Fetch models data directly from the Together.ai API."""
@@ -180,14 +356,13 @@ def fetch_models_data(api_key):
     }
     
     try:
-        print(f"Fetching models data from {TOGETHER_API_URL}...")
+        logger.info(f"Fetching models data from {TOGETHER_API_URL}...")
         response = requests.get(TOGETHER_API_URL, headers=headers)
         response.raise_for_status()  # Raise exception for non-200 status codes
         return response.json()
     except requests.RequestException as e:
-        print(f"Error fetching data from API: {e}", file=sys.stderr)
+        logger.error(f"Error fetching data from API: {e}")
         return None
-
 
 def main():
     """Main function to parse arguments and generate YAML files."""
@@ -200,6 +375,8 @@ def main():
                         help='Skip free models (models with zero pricing)')
     parser.add_argument('--summary', action='store_true',
                         help='Print summary statistics')
+    parser.add_argument('--force-regenerate', action='store_true',
+                        help='Force regeneration of all YAML files, ignoring version cache')
     
     args = parser.parse_args()
     
@@ -214,20 +391,19 @@ def main():
         try:
             with open(args.input_file, 'r') as file:
                 models_data = json.load(file)
-            print(f"Loaded {len(models_data)} models from {args.input_file}")
+            logger.info(f"Loaded {len(models_data)} models from {args.input_file}")
         except (FileNotFoundError, json.JSONDecodeError) as e:
-            print(f"Error loading input file: {e}", file=sys.stderr)
+            logger.error(f"Error loading input file: {e}")
             return 1
     elif api_key:
         # Fetch from API
         models_data = fetch_models_data(api_key)
         if not models_data:
-            print("Failed to fetch models data from API.", file=sys.stderr)
+            logger.error("Failed to fetch models data from API.")
             return 1
-        print(f"Successfully fetched {len(models_data)} models from API")
+        logger.info(f"Successfully fetched {len(models_data)} models from API")
     else:
-        print("Error: Either --input-file or --api-key (or TOGETHER_API_KEY environment variable) must be provided", 
-              file=sys.stderr)
+        logger.error("Error: Either --input-file or --api-key (or TOGETHER_API_KEY environment variable) must be provided")
         return 1
     
     # Create output directory
@@ -239,18 +415,31 @@ def main():
         try:
             with open(output_file, 'w') as file:
                 json.dump(models_data, file, indent=2)
-            print(f"Saved API response to {output_file}")
+            logger.info(f"Saved API response to {output_file}")
         except Exception as e:
-            print(f"Warning: Could not save API response to file: {e}", file=sys.stderr)
+            logger.warning(f"Could not save API response to file: {e}")
+    
+    # Load version cache (unless we're forcing regeneration)
+    version_cache = {} if args.force_regenerate else load_version_cache()
     
     # Process models
     created_files = []
     skipped_models = []
+    model_status = {
+        "created": [],
+        "updated": [],
+        "unchanged": []
+    }
     role_counter = Counter()
     model_types = Counter()
     model_by_role = defaultdict(list)
     
-    for model_data in models_data:
+    total_models = len(models_data)
+    logger.info(f"Processing {total_models} models...")
+    
+    for i, model_data in enumerate(models_data, 1):
+        if i % 10 == 0 or i == total_models:
+            logger.info(f"Progress: {i}/{total_models} models ({i/total_models:.1%})")
         # Check if we should skip this model
         skip = False
         display_name = model_data.get('display_name', '')
@@ -272,10 +461,11 @@ def main():
             continue
         
         # Create YAML file
-        result = create_yaml_file(model_data, args.output_dir)
+        result = create_yaml_file(model_data, args.output_dir, version_cache)
         if result:
-            filepath, name, roles, model_type = result
+            filepath, name, roles, model_type, status, version = result
             created_files.append((filepath, name))
+            model_status[status].append((name, version))
             
             # Update statistics
             for role in roles:
@@ -284,44 +474,69 @@ def main():
             
             model_types[model_type] += 1
     
+    # Save updated version cache
+    save_version_cache(version_cache)
+    
     # Print summary
-    print(f"\nCreated {len(created_files)} YAML files in {args.output_dir}")
+    logger.info(f"\nResults:")
+    logger.info(f"  Created: {len(model_status['created'])} models")
+    logger.info(f"  Updated: {len(model_status['updated'])} models")
+    logger.info(f"  Unchanged: {len(model_status['unchanged'])} models")
+    logger.info(f"  Skipped: {len(skipped_models)} models")
+    
+    # Count models with context length info
+    context_length_count = sum(1 for model_data in models_data 
+                              if model_data.get('context_length', 0) > 0 and 
+                              model_data.get('type', '') not in ['image', 'audio', 'moderation'])
+    logger.info(f"  Models with contextLength: {context_length_count}")
+    
     if skipped_models:
-        print(f"Skipped {len(skipped_models)} models")
+        logger.info(f"Skipped {len(skipped_models)} models")
     
     if args.summary:
-        print("\n=== Summary Statistics ===")
+        logger.info("\n=== Summary Statistics ===")
         
-        print("\nModel types:")
+        logger.info("\nModel types:")
         for model_type, count in model_types.most_common():
-            print(f"  {model_type}: {count} models")
+            logger.info(f"  {model_type}: {count} models")
         
-        print("\nRoles distribution:")
+        logger.info("\nRoles distribution:")
         for role, count in role_counter.most_common():
-            print(f"  {role}: {count} models")
+            logger.info(f"  {role}: {count} models")
             # Always show all models for autocomplete role
             if role == 'autocomplete' or len(model_by_role[role]) <= 5:
                 for model in model_by_role[role]:
-                    print(f"    - {model}")
+                    logger.info(f"    - {model}")
             else:
                 for model in model_by_role[role][:3]:  # Show first 3
-                    print(f"    - {model}")
-                print(f"    - ... and {count-3} more")
+                    logger.info(f"    - {model}")
+                logger.info(f"    - ... and {count-3} more")
         
         # Print autocomplete eligibility statistics
-        print("\nAutocomplete configuration:")
-        print(f"  Predefined autocomplete models: {len(AUTOCOMPLETE_MODELS)}")
-        print("  Models in predefined list:")
+        logger.info("\nAutocomplete configuration:")
+        logger.info(f"  Predefined autocomplete models: {len(AUTOCOMPLETE_MODELS)}")
+        logger.info("  Models in predefined list:")
         for model in AUTOCOMPLETE_MODELS:
-            print(f"    - {model}")
+            logger.info(f"    - {model}")
             
         # Check for models in the list that weren't found in the API
         found_models = set(model_by_role['autocomplete'])
         missing_models = [m for m in AUTOCOMPLETE_MODELS if m not in found_models]
         if missing_models:
-            print("\n  Warning: The following models from AUTOCOMPLETE_MODELS were not found in the API data:")
+            logger.info("\n  Warning: The following models from AUTOCOMPLETE_MODELS were not found in the API data:")
             for model in missing_models:
-                print(f"    - {model}")
+                logger.info(f"    - {model}")
+        
+        # Print added/updated models
+        if model_status['created']:
+            logger.info("\nNewly added models:")
+            for model, version in model_status['created']:
+                logger.info(f"  - {model} (v{version})")
+        
+        if model_status['updated']:
+            logger.info("\nUpdated models:")
+            for model, version in model_status['updated']:
+                logger.info(f"  - {model} (v{version})")
     
     return 0
 
