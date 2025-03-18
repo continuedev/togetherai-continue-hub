@@ -1,0 +1,15 @@
+---
+name: Mistral Small (24B) Instruct 25.01
+version: 1.0.0
+schema: v1
+models:
+  - name: Mistral Small (24B) Instruct 25.01
+    provider: together
+    model: mistralai/Mistral-Small-24B-Instruct-2501
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    roles:
+      - apply
+      - chat
+      - edit

@@ -1,0 +1,16 @@
+---
+name: Gemma Instruct (2B)
+version: 1.0.0
+schema: v1
+models:
+  - name: Gemma Instruct (2B)
+    provider: together
+    model: google/gemma-2b-it
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 8192
+    roles:
+      - apply
+      - autocomplete
+      - chat
+      - edit

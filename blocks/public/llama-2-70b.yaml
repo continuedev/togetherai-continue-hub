@@ -1,0 +1,13 @@
+---
+name: LLaMA-2 (70B)
+version: 1.0.0
+schema: v1
+models:
+  - name: LLaMA-2 (70B)
+    provider: together
+    model: meta-llama/Llama-2-70b-hf
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 4096
+    roles:
+      - chat

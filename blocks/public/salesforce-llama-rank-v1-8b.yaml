@@ -1,0 +1,13 @@
+---
+name: Salesforce Llama Rank V1 (8B)
+version: 1.0.0
+schema: v1
+models:
+  - name: Salesforce Llama Rank V1 (8B)
+    provider: together
+    model: Salesforce/Llama-Rank-V1
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 8192
+    roles:
+      - rerank

@@ -1,0 +1,15 @@
+---
+name: Llama 3.1 Nemotron 70B Instruct HF
+version: 1.0.0
+schema: v1
+models:
+  - name: Llama 3.1 Nemotron 70B Instruct HF
+    provider: together
+    model: nvidia/Llama-3.1-Nemotron-70B-Instruct-HF
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    roles:
+      - apply
+      - chat
+      - edit

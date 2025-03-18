@@ -1,0 +1,15 @@
+---
+name: DeepSeek R1
+version: 1.0.0
+schema: v1
+models:
+  - name: DeepSeek R1
+    provider: together
+    model: deepseek-ai/DeepSeek-R1
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 163840
+    roles:
+      - apply
+      - chat
+      - edit

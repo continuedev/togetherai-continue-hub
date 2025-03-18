@@ -1,0 +1,13 @@
+---
+name: Gryphe MythoMax L2 Lite (13B)
+version: 1.0.0
+schema: v1
+models:
+  - name: Gryphe MythoMax L2 Lite (13B)
+    provider: together
+    model: Gryphe/MythoMax-L2-13b-Lite
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 4096
+    roles:
+      - chat

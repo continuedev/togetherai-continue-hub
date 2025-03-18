@@ -1,0 +1,16 @@
+---
+name: Meta Llama 3 8B Instruct Lite
+version: 1.0.0
+schema: v1
+models:
+  - name: Meta Llama 3 8B Instruct Lite
+    provider: together
+    model: meta-llama/Meta-Llama-3-8B-Instruct-Lite
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 8192
+    roles:
+      - apply
+      - autocomplete
+      - chat
+      - edit

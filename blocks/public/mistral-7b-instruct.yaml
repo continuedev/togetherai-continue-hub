@@ -1,0 +1,15 @@
+---
+name: Mistral (7B) Instruct
+version: 1.0.0
+schema: v1
+models:
+  - name: Mistral (7B) Instruct
+    provider: together
+    model: mistralai/Mistral-7B-Instruct-v0.1
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    roles:
+      - apply
+      - chat
+      - edit

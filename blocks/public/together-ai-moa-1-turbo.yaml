@@ -1,0 +1,15 @@
+---
+name: Together AI MoA-1-Turbo
+version: 1.0.0
+schema: v1
+models:
+  - name: Together AI MoA-1-Turbo
+    provider: together
+    model: togethercomputer/MoA-1-Turbo
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    roles:
+      - apply
+      - chat
+      - edit

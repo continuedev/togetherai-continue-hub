@@ -1,0 +1,13 @@
+---
+name: M2-BERT-Retrieval-8k
+version: 1.0.0
+schema: v1
+models:
+  - name: M2-BERT-Retrieval-8k
+    provider: together
+    model: togethercomputer/m2-bert-80M-8k-retrieval
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 8192
+    roles:
+      - embed

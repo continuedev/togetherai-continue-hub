@@ -1,0 +1,14 @@
+---
+name: Mistral (7B)
+version: 1.0.0
+schema: v1
+models:
+  - name: Mistral (7B)
+    provider: together
+    model: mistralai/Mistral-7B-v0.1
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 4096
+    roles:
+      - autocomplete
+      - chat

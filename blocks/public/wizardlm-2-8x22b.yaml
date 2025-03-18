@@ -1,0 +1,15 @@
+---
+name: WizardLM-2 (8x22B)
+version: 1.0.0
+schema: v1
+models:
+  - name: WizardLM-2 (8x22B)
+    provider: together
+    model: microsoft/WizardLM-2-8x22B
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 65536
+    roles:
+      - apply
+      - chat
+      - edit

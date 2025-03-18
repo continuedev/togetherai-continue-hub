@@ -1,0 +1,15 @@
+---
+name: Qwen QwQ-32B
+version: 1.0.0
+schema: v1
+models:
+  - name: Qwen QwQ-32B
+    provider: together
+    model: Qwen/QwQ-32B
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 131072
+    roles:
+      - apply
+      - chat
+      - edit

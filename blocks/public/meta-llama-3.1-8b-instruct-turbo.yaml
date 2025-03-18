@@ -1,0 +1,16 @@
+---
+name: Meta Llama 3.1 8B Instruct Turbo
+version: 1.0.0
+schema: v1
+models:
+  - name: Meta Llama 3.1 8B Instruct Turbo
+    provider: together
+    model: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-classifier
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 131072
+    roles:
+      - apply
+      - autocomplete
+      - chat
+      - edit

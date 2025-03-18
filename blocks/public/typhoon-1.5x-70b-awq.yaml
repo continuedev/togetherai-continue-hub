@@ -1,0 +1,15 @@
+---
+name: Typhoon 1.5X 70B-awq
+version: 1.0.0
+schema: v1
+models:
+  - name: Typhoon 1.5X 70B-awq
+    provider: together
+    model: scb10x/scb10x-llama3-typhoon-v1-5x-4f316
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 8192
+    roles:
+      - apply
+      - chat
+      - edit

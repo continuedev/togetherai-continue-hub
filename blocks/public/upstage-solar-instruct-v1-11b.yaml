@@ -1,0 +1,13 @@
+---
+name: Upstage SOLAR Instruct v1 (11B)
+version: 1.0.0
+schema: v1
+models:
+  - name: Upstage SOLAR Instruct v1 (11B)
+    provider: together
+    model: upstage/SOLAR-10.7B-Instruct-v1.0
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 4096
+    roles:
+      - chat

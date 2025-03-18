@@ -1,0 +1,11 @@
+---
+name: UAE-Large-V1
+version: 1.0.0
+schema: v1
+models:
+  - name: UAE-Large-V1
+    provider: together
+    model: WhereIsAI/UAE-Large-V1
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    roles:
+      - embed

@@ -1,0 +1,15 @@
+---
+name: Typhoon 2 8B Instruct
+version: 1.0.0
+schema: v1
+models:
+  - name: Typhoon 2 8B Instruct
+    provider: together
+    model: scb10x/scb10x-llama3-1-typhoon-18370
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 8192
+    roles:
+      - apply
+      - chat
+      - edit

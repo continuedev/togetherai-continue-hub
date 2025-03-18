@@ -1,0 +1,11 @@
+---
+name: BAAI-Bge-Large-1p5
+version: 1.0.0
+schema: v1
+models:
+  - name: BAAI-Bge-Large-1p5
+    provider: together
+    model: BAAI/bge-large-en-v1.5
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    roles:
+      - embed

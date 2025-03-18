@@ -1,0 +1,15 @@
+---
+name: Meta Llama 3.3 70B Instruct Turbo Free
+version: 1.0.0
+schema: v1
+models:
+  - name: Meta Llama 3.3 70B Instruct Turbo Free
+    provider: together
+    model: meta-llama/Llama-3.3-70B-Instruct-Turbo-Free
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 131072
+    roles:
+      - apply
+      - chat
+      - edit
