@@ -60,6 +60,15 @@ run: check-venv | $(OUTPUT_DIR)
 	@echo "Running generator with API key..."
 	$(PYTHON_VENV) together_models.py --api-key $(TOGETHER_API_KEY) -o $(OUTPUT_DIR) $(if $(SKIP_FREE),--skip-free,) --summary
 
+run-force: check-venv | $(OUTPUT_DIR)
+	@if [ -z "$(TOGETHER_API_KEY)" ]; then \
+		echo "Error: TOGETHER_API_KEY environment variable is required."; \
+		echo "Usage: TOGETHER_API_KEY=your_api_key make run"; \
+		exit 1; \
+	fi
+	@echo "Running generator with API key..."
+	$(PYTHON_VENV) together_models.py --force-regenerate --api-key $(TOGETHER_API_KEY) -o $(OUTPUT_DIR) $(if $(SKIP_FREE),--skip-free,) --summary
+
 run-file: check-venv | $(OUTPUT_DIR)
 	@echo "Running generator with file: $(FILE)..."
 	$(PYTHON_VENV) together_models.py --input-file "$(FILE)" -o $(OUTPUT_DIR) $(if $(SKIP_FREE),--skip-free,) --summary
