@@ -370,5 +370,23 @@
     "version": "1.0.0",
     "filename": "qwen-qwq-32b.yaml",
     "display_name": "Qwen QwQ-32B"
+  },
+  "Qwen/Qwen2.5-VL-72B-Instruct": {
+    "hash": "76ed083dfee980229086c83e375a1dfc",
+    "version": "1.0.0",
+    "filename": "qwen2.5-vl-72b-instruct.yaml",
+    "display_name": "Qwen2.5-VL (72B) Instruct"
+  },
+  "scb10x/scb10x-llama3-1-typhoon2-8b-instruct": {
+    "hash": "8fba44311911111e4f0816b3bbccb316",
+    "version": "1.0.0",
+    "filename": "typhoon-2-8b-instruct.yaml",
+    "display_name": "Typhoon 2 8B Instruct"
+  },
+  "scb10x/scb10x-llama3-1-typhoon2-70b-instruct": {
+    "hash": "1828c1917b1df984c78a7a75f8d79110",
+    "version": "1.0.0",
+    "filename": "typhoon-2-70b-instruct.yaml",
+    "display_name": "Typhoon 2 70B Instruct"
   }
 }

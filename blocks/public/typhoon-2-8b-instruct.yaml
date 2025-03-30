@@ -5,7 +5,7 @@ schema: v1
 models:
   - name: Typhoon 2 8B Instruct
     provider: together
-    model: scb10x/scb10x-llama3-1-typhoon-18370
+    model: scb10x/scb10x-llama3-1-typhoon2-8b-instruct
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 8192
