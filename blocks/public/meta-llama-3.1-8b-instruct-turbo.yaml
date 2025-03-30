@@ -5,7 +5,7 @@ schema: v1
 models:
   - name: Meta Llama 3.1 8B Instruct Turbo
     provider: together
-    model: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo-classifier
+    model: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 131072
