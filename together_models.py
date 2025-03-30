@@ -92,9 +92,8 @@ def sanitize_filename(name):
     result = re.sub(r'_+', '_', result)
     result = re.sub(r'-+', '-', result)
 
-    # Strip trailing hyphens or underscores before .yaml extension
-    result = re.sub(r'-+(\.yaml)$', r'\1', result)
-    result = re.sub(r'_+(\.yaml)$', r'\1', result)
+    # Strip trailing hyphens or underscores
+    result = result.rstrip('-_')  # <-- Added this line
 
     return result
 
