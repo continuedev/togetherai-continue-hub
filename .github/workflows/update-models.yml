@@ -6,6 +6,11 @@ on:
     - cron: '0 2 * * *'
   # Allow manual triggering
   workflow_dispatch:
+    inputs:
+      forceRegenerate:
+        description: 'Pass --force-regenerate flag to the script'
+        required: false
+        default: 'false'
 
 jobs:
   update-models:
@@ -31,7 +36,11 @@ jobs:
       - name: Update Together.ai models and generate changes report
         id: update-models
         run: |
-          python together_models.py --summary > model_update_report.txt
+          if [[ "${{ github.event.inputs.forceRegenerate }}" == "true" ]]; then
+            python together_models.py --summary --force-regenerate > model_update_report.txt
+          else
+            python together_models.py --summary > model_update_report.txt
+          fi
           
           # Extract specific sections for PR description
           
