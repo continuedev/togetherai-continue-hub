@@ -1,0 +1,15 @@
+---
+name: Qwen2.5-VL (72B) Instruct
+version: 1.0.0
+schema: v1
+models:
+  - name: Qwen2.5-VL (72B) Instruct
+    provider: together
+    model: Qwen/Qwen2.5-VL-72B-Instruct
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    roles:
+      - apply
+      - chat
+      - edit

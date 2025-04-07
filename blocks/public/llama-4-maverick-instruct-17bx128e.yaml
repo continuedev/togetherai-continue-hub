@@ -1,0 +1,15 @@
+---
+name: Llama 4 Maverick Instruct (17Bx128E)
+version: 1.0.0
+schema: v1
+models:
+  - name: Llama 4 Maverick Instruct (17Bx128E)
+    provider: together
+    model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 524288
+    roles:
+      - apply
+      - chat
+      - edit

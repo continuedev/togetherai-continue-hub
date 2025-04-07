@@ -68,13 +68,6 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 
-# Project specific
-# Generated model files
-blocks/public/*.yaml
-blocks/private/*.yaml
-assistants/public/*.yaml
-assistants/private/*.yaml
-
 # API keys and secrets
 .env
 *.pem
