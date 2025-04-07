@@ -16,7 +16,7 @@ import sys
 import argparse
 import unittest
 from collections import Counter
-from together_models import determine_roles, AUTOCOMPLETE_MODELS
+from together_models import determine_roles_and_capabilities, AUTOCOMPLETE_MODELS
 
 
 def load_test_data(file_path):
@@ -59,7 +59,7 @@ class TestModelRoles(unittest.TestCase):
             if model_type in ['image', 'audio', 'moderation']:
                 continue  # Skip image, audio, and moderation models
                 
-            roles = determine_roles(model_data)
+            roles, _ = determine_roles_and_capabilities(model_data)
             display_name = model_data.get('display_name', '')
             model_id = model_data.get('id', '')
             
@@ -92,7 +92,7 @@ class TestModelRoles(unittest.TestCase):
             if model_type in ['image', 'audio', 'moderation']:
                 continue  # Skip image, audio, and moderation models
                 
-            roles = determine_roles(model_data)
+            roles, _ = determine_roles_and_capabilities(model_data)
             context_length = model_data.get('context_length', 0)
             display_name = model_data.get('display_name', '')
             
@@ -128,7 +128,7 @@ def test_autocomplete_role(models_data):
         if model_type in ['image', 'audio', 'moderation']:
             continue  # Skip image, audio, and moderation models
 
-        roles = determine_roles(model_data)
+        roles, _ = determine_roles_and_capabilities(model_data)
         display_name = model_data.get('display_name', '')
         model_id = model_data.get('id', '')
         
@@ -158,7 +158,7 @@ def test_context_window_requirement(models_data):
         if model_type in ['image', 'audio', 'moderation']:
             continue  # Skip image, audio, and moderation models
             
-        roles = determine_roles(model_data)
+        roles, _ = determine_roles_and_capabilities(model_data)
         context_length = model_data.get('context_length', 0)
         display_name = model_data.get('display_name', '')
         
@@ -239,7 +239,7 @@ def print_role_statistics(models_data):
             continue
         
         # Process roles for non-image, non-audio models
-        roles = determine_roles(model_data)
+        roles, _ = determine_roles_and_capabilities(model_data)
         model_types[model_type] += 1
         for role in roles:
             role_counter[role] += 1
