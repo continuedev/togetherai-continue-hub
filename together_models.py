@@ -381,7 +381,7 @@ def create_yaml_file(model_data, output_dir=DEFAULT_OUTPUT_DIR, version_cache=No
         'display_name': display_name
     }
     
-    return filepath, display_name, roles, model_data.get('type', 'unknown'), status, version
+    return filepath, display_name, roles, model_data.get('type', 'unknown'), status, version, change_details if status == 'updated' else None
 
 def fetch_models_data(api_key):
     """Fetch models data directly from the Together.ai API."""
@@ -501,13 +501,13 @@ def main():
         # Create YAML file
         result = create_yaml_file(model_data, args.output_dir, version_cache)
         if result:
-            filepath, name, roles, model_type, status, version = result
+            filepath, name, roles, model_type, status, version, changes = result
             created_files.append((filepath, name))
             model_status[status].append((name, version))
             
             # Store change details for updated models
-            if status == "updated" and change_details:
-                model_status[status][-1] = (name, version, change_details)
+            if status == "updated" and changes:
+                model_status[status][-1] = (name, version, changes)
             
             # Update statistics
             for role in roles:
