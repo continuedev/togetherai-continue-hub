@@ -1,6 +1,6 @@
 ---
 name: LLaMA-2 Chat (13B)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: LLaMA-2 Chat (13B)
@@ -9,5 +9,7 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 4096
+    capabilities:
+      - tool_use
     roles:
       - chat

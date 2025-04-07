@@ -1,6 +1,6 @@
 ---
 name: Llama 4 Scout Instruct (17Bx16E)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: Llama 4 Scout Instruct (17Bx16E)
@@ -9,6 +9,8 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 327680
+    capabilities:
+      - tool_use
     roles:
       - apply
       - chat

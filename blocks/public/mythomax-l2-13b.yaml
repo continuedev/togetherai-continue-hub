@@ -1,6 +1,6 @@
 ---
 name: MythoMax-L2 (13B)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: MythoMax-L2 (13B)

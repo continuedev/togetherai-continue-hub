@@ -1,6 +1,6 @@
 ---
 name: Meta Llama 3 70B Instruct Reference
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: Meta Llama 3 70B Instruct Reference
@@ -9,6 +9,8 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 8192
+    capabilities:
+      - tool_use
     roles:
       - apply
       - chat

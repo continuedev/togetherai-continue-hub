@@ -1,6 +1,6 @@
 ---
 name: WizardLM-2 (8x22B)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: WizardLM-2 (8x22B)

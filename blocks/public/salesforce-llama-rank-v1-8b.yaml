@@ -1,6 +1,6 @@
 ---
 name: Salesforce Llama Rank V1 (8B)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: Salesforce Llama Rank V1 (8B)
@@ -9,5 +9,7 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 8192
+    capabilities:
+      - tool_use
     roles:
       - rerank

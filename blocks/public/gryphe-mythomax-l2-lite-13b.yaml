@@ -1,6 +1,6 @@
 ---
 name: Gryphe MythoMax L2 Lite (13B)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: Gryphe MythoMax L2 Lite (13B)

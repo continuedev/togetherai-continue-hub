@@ -1,6 +1,6 @@
 ---
 name: Gemma Instruct (2B)
-version: 1.0.0
+version: 1.1.0
 schema: v1
 models:
   - name: Gemma Instruct (2B)
@@ -9,6 +9,8 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 8192
+    capabilities:
+      - tool_use
     roles:
       - apply
       - autocomplete
