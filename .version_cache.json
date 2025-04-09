@@ -360,14 +360,14 @@
     "display_name": "Meta Llama 3.1 70B Instruct Turbo"
   },
   "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8": {
-    "hash": "2f07a2f0568612e15516b0d8747de63b",
-    "version": "1.1.0",
+    "hash": "d7767a5fda781ca1c4fd18cebd93eb96",
+    "version": "1.2.0",
     "filename": "llama-4-maverick-instruct-17bx128e.yaml",
     "display_name": "Llama 4 Maverick Instruct (17Bx128E)"
   },
   "meta-llama/Llama-4-Scout-17B-16E-Instruct": {
-    "hash": "5c56ecd842aa85188a28325cf74d5cf9",
-    "version": "1.1.0",
+    "hash": "650ef1fce0eb0891cad4ef9b934adb20",
+    "version": "1.2.0",
     "filename": "llama-4-scout-instruct-17bx16e.yaml",
     "display_name": "Llama 4 Scout Instruct (17Bx16E)"
   }
