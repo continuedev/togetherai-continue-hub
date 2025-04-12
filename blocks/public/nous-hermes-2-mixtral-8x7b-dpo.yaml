@@ -1,15 +1,13 @@
 ---
-name: 'Nous Hermes 2 - Mixtral 8x7B-DPO '
-version: 1.1.0
+name: Nous Hermes 2 Mixtral 8X7B Dpo
+version: 1.2.0
 schema: v1
 models:
-  - name: 'Nous Hermes 2 - Mixtral 8x7B-DPO '
+  - name: Nous Hermes 2 Mixtral 8X7B Dpo
     provider: together
     model: NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 32768
+      contextLength: 512
     roles:
-      - apply
       - chat
-      - edit
