@@ -1,0 +1,15 @@
+---
+name: togethercomputer/DeepCoder-14B-Preview-5cd73493
+version: 1.1.0
+schema: v1
+models:
+  - name: togethercomputer/DeepCoder-14B-Preview-5cd73493
+    provider: together
+    model: harish_together/togethercomputer/DeepCoder-14B-Preview-5cd73493
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 131072
+    roles:
+      - apply
+      - chat
+      - edit
