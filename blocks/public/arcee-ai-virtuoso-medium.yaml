@@ -1,0 +1,15 @@
+---
+name: Arcee AI Virtuoso-Medium
+version: 1.1.0
+schema: v1
+models:
+  - name: Arcee AI Virtuoso-Medium
+    provider: together
+    model: arcee-ai/virtuoso-medium-v2
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 131072
+    roles:
+      - apply
+      - chat
+      - edit
