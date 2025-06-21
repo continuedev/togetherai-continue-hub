@@ -1,13 +1,13 @@
 ---
-name: BAAI-Bge-Base-1.5
+name: Gte Modernbert Base
 version: 1.1.0
 schema: v1
 models:
-  - name: BAAI-Bge-Base-1.5
+  - name: Gte Modernbert Base
     provider: together
-    model: BAAI/bge-base-en-v1.5-vllm
+    model: Alibaba-NLP/gte-modernbert-base
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 512
+      contextLength: 8192
     roles:
       - embed
