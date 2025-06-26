@@ -1,13 +1,15 @@
 ---
-name: BAAI-Bge-Base-1.5
+name: Arcee AI Blitz
 version: 1.1.0
 schema: v1
 models:
-  - name: BAAI-Bge-Base-1.5
+  - name: Arcee AI Blitz
     provider: together
-    model: BAAI/bge-base-en-v1.5-vllm
+    model: arcee-ai/arcee-blitz
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 512
+      contextLength: 32768
     roles:
-      - embed
+      - apply
+      - chat
+      - edit
