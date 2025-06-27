@@ -1,13 +1,13 @@
 ---
-name: BAAI-Bge-Base-1.5
+name: Marin 8B Instruct
 version: 1.1.0
 schema: v1
 models:
-  - name: BAAI-Bge-Base-1.5
+  - name: Marin 8B Instruct
     provider: together
-    model: BAAI/bge-base-en-v1.5-vllm
+    model: marin-community/marin-8b-instruct
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 512
+      contextLength: 4096
     roles:
-      - embed
+      - chat

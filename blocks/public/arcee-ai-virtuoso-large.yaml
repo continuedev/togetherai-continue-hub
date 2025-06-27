@@ -1,14 +1,14 @@
 ---
-name: Qwen 2.5 Coder 32B Instruct
-version: 1.2.0
+name: Arcee AI Virtuoso-Large
+version: 1.1.0
 schema: v1
 models:
-  - name: Qwen 2.5 Coder 32B Instruct
+  - name: Arcee AI Virtuoso-Large
     provider: together
-    model: Qwen/Qwen2.5-Coder-32B-Instruct
+    model: arcee-ai/virtuoso-large
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 32768
+      contextLength: 131072
     roles:
       - apply
       - chat
