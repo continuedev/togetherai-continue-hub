@@ -1,14 +1,14 @@
 ---
-name: Qwen 2.5 Coder 32B Instruct
-version: 1.2.0
+name: AFM-4.5B-Preview
+version: 1.1.0
 schema: v1
 models:
-  - name: Qwen 2.5 Coder 32B Instruct
+  - name: AFM-4.5B-Preview
     provider: together
-    model: Qwen/Qwen2.5-Coder-32B-Instruct
+    model: arcee-ai/AFM-4.5B-Preview
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 32768
+      contextLength: 65536
     roles:
       - apply
       - chat
