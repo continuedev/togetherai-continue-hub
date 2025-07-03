@@ -1,11 +1,11 @@
 ---
-name: Nous Hermes 2 Mixtral 8X7B Dpo
-version: 1.2.0
+name: EXAONE 3.5 32B Instruct
+version: 1.1.0
 schema: v1
 models:
-  - name: Nous Hermes 2 Mixtral 8X7B Dpo
+  - name: EXAONE 3.5 32B Instruct
     provider: together
-    model: NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO
+    model: lgai/exaone-3-5-32b-instruct
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 32768
