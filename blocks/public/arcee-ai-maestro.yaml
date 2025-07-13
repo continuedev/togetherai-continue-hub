@@ -1,16 +1,14 @@
 ---
-name: DeepSeek V3-0324
+name: Arcee AI Maestro
 version: 1.1.0
 schema: v1
 models:
-  - name: DeepSeek V3-0324
+  - name: Arcee AI Maestro
     provider: together
-    model: yan/deepseek-ai-deepseek-v3
+    model: arcee-ai/maestro-reasoning
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 163839
-    capabilities:
-      - tool_use
+      contextLength: 131072
     roles:
       - apply
       - chat
