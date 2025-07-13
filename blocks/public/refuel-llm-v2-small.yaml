@@ -1,16 +1,14 @@
 ---
-name: DeepSeek V3-0324
+name: Refuel LLM V2 Small
 version: 1.1.0
 schema: v1
 models:
-  - name: DeepSeek V3-0324
+  - name: Refuel LLM V2 Small
     provider: together
-    model: yan/deepseek-ai-deepseek-v3
+    model: togethercomputer/Refuel-Llm-V2-Small
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 163839
-    capabilities:
-      - tool_use
+      contextLength: 8192
     roles:
       - apply
       - chat
