@@ -1,16 +1,14 @@
 ---
-name: DeepSeek V3-0324
+name: EXAONE 3.5 32B Instruct
 version: 1.1.0
 schema: v1
 models:
-  - name: DeepSeek V3-0324
+  - name: EXAONE 3.5 32B Instruct
     provider: together
-    model: yan/deepseek-ai-deepseek-v3
+    model: lgai/exaone-3-5-32b-instruct
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 163839
-    capabilities:
-      - tool_use
+      contextLength: 32768
     roles:
       - apply
       - chat
