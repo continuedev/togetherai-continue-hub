@@ -5,7 +5,7 @@ schema: v1
 models:
   - name: Meta Llama 3.3 70B Instruct Turbo
     provider: together
-    model: meta-llama/Llama-3.3-70B-Instruct-Turbo
+    model: moz/Llama-3.3-70B-Instruct-Turbo
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 131072
