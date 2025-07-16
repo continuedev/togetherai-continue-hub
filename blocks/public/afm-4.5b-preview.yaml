@@ -1,16 +1,14 @@
 ---
-name: DeepSeek V3-0324
+name: AFM-4.5B-Preview
 version: 1.1.0
 schema: v1
 models:
-  - name: DeepSeek V3-0324
+  - name: AFM-4.5B-Preview
     provider: together
-    model: yan/deepseek-ai-deepseek-v3
+    model: arcee-ai/AFM-4.5B-Preview
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 163839
-    capabilities:
-      - tool_use
+      contextLength: 65536
     roles:
       - apply
       - chat
