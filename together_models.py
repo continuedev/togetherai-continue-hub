@@ -84,7 +84,8 @@ TOOL_USE_MODELS = [
     "gemma",
     "deepseek",
     "mistral",
-    "qwen-2.5-coder"
+    "qwen-2.5-coder",
+    "kimi"
 ]
 
 def sanitize_filename(name):
