@@ -1,16 +1,14 @@
 ---
-name: DeepSeek V3-0324
+name: Arcee AI Blitz
 version: 1.1.0
 schema: v1
 models:
-  - name: DeepSeek V3-0324
+  - name: Arcee AI Blitz
     provider: together
-    model: yan/deepseek-ai-deepseek-v3
+    model: arcee-ai/arcee-blitz
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 163839
-    capabilities:
-      - tool_use
+      contextLength: 32768
     roles:
       - apply
       - chat
