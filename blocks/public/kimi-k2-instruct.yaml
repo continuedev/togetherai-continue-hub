@@ -5,10 +5,12 @@ schema: v1
 models:
   - name: Kimi K2 Instruct
     provider: together
-    model: moonshotai/Kimi-K2-Instruct
+    model: moonshotai/Kimi-K2-Instruct-tgl-testing
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 131072
+    capabilities:
+      - tool_use
     roles:
       - apply
       - chat

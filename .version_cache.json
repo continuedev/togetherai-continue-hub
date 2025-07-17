@@ -384,8 +384,8 @@
     "display_name": "Meta Llama 3.1 405B Fp8"
   },
   "moonshotai/Kimi-K2-Instruct": {
-    "hash": "34c1329b98961291b9e3c2de52414686",
-    "version": "1.1.0",
+    "hash": "af79bea5ddf6a612a6c81b71a7c673f1",
+    "version": "1.2.0",
     "filename": "kimi-k2-instruct.yaml",
     "display_name": "Kimi K2 Instruct"
   },
@@ -532,5 +532,11 @@
     "version": "1.1.0",
     "filename": "meta-llama-3.3-70b-instruct-turbo.yaml",
     "display_name": "Meta Llama 3.3 70B Instruct Turbo"
+  },
+  "moonshotai/Kimi-K2-Instruct-tgl-testing": {
+    "hash": "0788f761369756fda3a79cc263c4f72f",
+    "version": "1.1.0",
+    "filename": "kimi-k2-instruct.yaml",
+    "display_name": "Kimi K2 Instruct"
   }
 }
