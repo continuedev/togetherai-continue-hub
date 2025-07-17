@@ -1,17 +1,17 @@
 ---
 name: Kimi K2 Instruct
-version: 1.1.0
+version: 1.2.0
 schema: v1
 models:
   - name: Kimi K2 Instruct
     provider: together
-    model: moonshotai/Kimi-K2-Instruct-tgl-testing
+    model: moonshotai/Kimi-K2-Instruct
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 131072
-    capabilities:
-      - tool_use
     roles:
       - apply
       - chat
       - edit
+    capabilities:
+      - tool_use
