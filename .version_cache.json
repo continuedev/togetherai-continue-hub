@@ -538,5 +538,11 @@
     "version": "1.1.0",
     "filename": "kimi-k2-instruct.yaml",
     "display_name": "Kimi K2 Instruct"
+  },
+  "meta-llama/Llama-4-Scout-17B-16E-Instruct-64k": {
+    "hash": "b92b2175e4b5c9fa07b1032c440ef5ed",
+    "version": "1.1.0",
+    "filename": "llama-4-scout-17b-16e-instruct.yaml",
+    "display_name": "Llama 4 Scout 17B 16E Instruct"
   }
 }
