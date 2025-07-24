@@ -538,5 +538,17 @@
     "version": "1.1.0",
     "filename": "kimi-k2-instruct.yaml",
     "display_name": "Kimi K2 Instruct"
+  },
+  "Qwen/Qwen3-32B-FP8": {
+    "hash": "a7d6ace616c4f3586f25dba6d1ba13f7",
+    "version": "1.1.0",
+    "filename": "qwen3-32b-fp8.yaml",
+    "display_name": "Qwen3 32B Fp8"
+  },
+  "Qwen/Qwen3-235B-A22B-Instruct-2507-tput": {
+    "hash": "00022257737c36e190a2311f8ea6f771",
+    "version": "1.1.0",
+    "filename": "qwen3-235b-a22b-instruct-2507-fp8-throughput.yaml",
+    "display_name": "Qwen3 235B A22B Instruct 2507 FP8 Throughput"
   }
 }
