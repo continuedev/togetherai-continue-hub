@@ -192,8 +192,8 @@
     "display_name": "Typhoon 2 8B Instruct"
   },
   "Qwen/Qwen2-72B-Instruct": {
-    "hash": "3b8597918485c421a785d8058af4fb79",
-    "version": "1.1.0",
+    "hash": "f30c14f08792e6bb73980940104a70aa",
+    "version": "1.2.0",
     "filename": "qwen-2-instruct-72b.yaml",
     "display_name": "Qwen 2 Instruct (72B)"
   },
@@ -228,8 +228,8 @@
     "display_name": "Meta Llama 3 8B Instruct Lite"
   },
   "Qwen/QwQ-32B": {
-    "hash": "82e9199e6c944f696607d7d98156ef33",
-    "version": "1.1.0",
+    "hash": "7d07f9a26bfdff317e9d3579979ce9f6",
+    "version": "1.2.0",
     "filename": "qwen-qwq-32b.yaml",
     "display_name": "Qwen QwQ-32B"
   },
@@ -264,14 +264,14 @@
     "display_name": "DeepSeek R1 Distill Llama 70B Free"
   },
   "Qwen/Qwen2.5-Coder-32B-Instruct": {
-    "hash": "6291b16b8ee65a10f0c44f3e6b9f1efc",
-    "version": "1.1.0",
+    "hash": "54bd1a7a55bde518c3ea9044a8f4c53d",
+    "version": "1.2.0",
     "filename": "qwen-2.5-coder-32b-instruct.yaml",
     "display_name": "Qwen 2.5 Coder 32B Instruct"
   },
   "Qwen/Qwen2.5-7B-Instruct-Turbo": {
-    "hash": "a72a5812062c6b4dac0ac3ccbf3f0c68",
-    "version": "1.1.0",
+    "hash": "03642c42b35de9aeab302ff69439016f",
+    "version": "1.2.0",
     "filename": "qwen2.5-7b-instruct-turbo.yaml",
     "display_name": "Qwen2.5 7B Instruct Turbo"
   },
@@ -312,8 +312,8 @@
     "display_name": "Salesforce Llama Rank V1 (8B)"
   },
   "Qwen/Qwen2.5-VL-72B-Instruct": {
-    "hash": "76ed083dfee980229086c83e375a1dfc",
-    "version": "1.1.0",
+    "hash": "b64208d37c0184306596ac455768bf0f",
+    "version": "1.2.0",
     "filename": "qwen2.5-vl-72b-instruct.yaml",
     "display_name": "Qwen2.5-VL (72B) Instruct"
   },
@@ -342,14 +342,14 @@
     "display_name": "Meta Llama 3.2 3B Instruct Turbo"
   },
   "Qwen/Qwen2.5-72B-Instruct-Turbo": {
-    "hash": "d97a0da960af3dac50926ac8bd2a8cde",
-    "version": "1.1.0",
+    "hash": "cd5c321da0c09d3339ece790dfc8cb98",
+    "version": "1.2.0",
     "filename": "qwen2.5-72b-instruct-turbo.yaml",
     "display_name": "Qwen2.5 72B Instruct Turbo"
   },
   "Qwen/Qwen2-VL-72B-Instruct": {
-    "hash": "28d6d5f2ad5d2735dea19983f64e92ca",
-    "version": "1.1.0",
+    "hash": "1565150a86a42af5bc79607c1e23a896",
+    "version": "1.2.0",
     "filename": "qwen2-vl-72b-instruct.yaml",
     "display_name": "Qwen2-VL (72B) Instruct"
   },
@@ -420,8 +420,8 @@
     "display_name": "Meta Llama 3.3 70B Instruct Turbo"
   },
   "Qwen/Qwen3-235B-A22B-fp8-tput": {
-    "hash": "f3c0ccc84960ed61cfd6389c385e2730",
-    "version": "1.1.0",
+    "hash": "a7f9ad3b22104a16b33c33933974a5a9",
+    "version": "1.2.0",
     "filename": "qwen3-235b-a22b-fp8-throughput.yaml",
     "display_name": "Qwen3 235B A22B FP8 Throughput"
   },
@@ -538,5 +538,29 @@
     "version": "1.1.0",
     "filename": "kimi-k2-instruct.yaml",
     "display_name": "Kimi K2 Instruct"
+  },
+  "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8": {
+    "hash": "df5198c32e4e523be10997cc2a6084b0",
+    "version": "1.1.0",
+    "filename": "qwen3-coder-480b-a35b-instruct-fp8.yaml",
+    "display_name": "Qwen3 Coder 480B A35B Instruct Fp8"
+  },
+  "Qwen/Qwen3-32B-FP8": {
+    "hash": "725a08cd5acfa3b9f6051aba70d4ab1f",
+    "version": "1.1.0",
+    "filename": "qwen3-32b-fp8.yaml",
+    "display_name": "Qwen3 32B Fp8"
+  },
+  "Qwen/Qwen3-235B-A22B-Instruct-2507-tput": {
+    "hash": "20267510b553c80abd812401874c978b",
+    "version": "1.1.0",
+    "filename": "qwen3-235b-a22b-instruct-2507-fp8-throughput.yaml",
+    "display_name": "Qwen3 235B A22B Instruct 2507 FP8 Throughput"
+  },
+  "Qwen/Qwen3-235B-A22B-Thinking-2507": {
+    "hash": "32602e9196abc22f1054cce024111a61",
+    "version": "1.1.0",
+    "filename": "qwen3-235b-a22b-thinking-2507-fp8.yaml",
+    "display_name": "Qwen3 235B A22B Thinking 2507 FP8"
   }
 }
