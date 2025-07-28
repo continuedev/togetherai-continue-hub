@@ -84,7 +84,7 @@ TOOL_USE_MODELS = [
     "gemma",
     "deepseek",
     "mistral",
-    "qwen-2.5-coder",
+    "qwen",
     "kimi"
 ]
 
