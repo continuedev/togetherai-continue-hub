@@ -1,14 +1,14 @@
 ---
-name: Qwen2.5 72B Instruct Turbo
-version: 1.2.0
+name: Qwen3 32B Fp8
+version: 1.1.0
 schema: v1
 models:
-  - name: Qwen2.5 72B Instruct Turbo
+  - name: Qwen3 32B Fp8
     provider: together
-    model: Qwen/Qwen2.5-72B-Instruct-Turbo
+    model: Qwen/Qwen3-32B-FP8
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 131072
+      contextLength: 40960
     capabilities:
       - tool_use
     roles:
