@@ -1,6 +1,6 @@
 ---
 name: Qwen3 235B A22B FP8 Throughput
-version: 1.1.0
+version: 1.2.0
 schema: v1
 models:
   - name: Qwen3 235B A22B FP8 Throughput
@@ -9,6 +9,8 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 40960
+    capabilities:
+      - tool_use
     roles:
       - apply
       - chat

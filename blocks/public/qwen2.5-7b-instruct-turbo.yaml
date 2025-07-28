@@ -1,6 +1,6 @@
 ---
 name: Qwen2.5 7B Instruct Turbo
-version: 1.1.0
+version: 1.2.0
 schema: v1
 models:
   - name: Qwen2.5 7B Instruct Turbo
@@ -9,6 +9,8 @@ models:
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
       contextLength: 32768
+    capabilities:
+      - tool_use
     roles:
       - apply
       - chat
