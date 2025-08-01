@@ -562,5 +562,23 @@
     "version": "1.1.0",
     "filename": "qwen3-235b-a22b-thinking-2507-fp8.yaml",
     "display_name": "Qwen3 235B A22B Thinking 2507 FP8"
+  },
+  "deepcogito/cogito-v2-preview-deepseek-671b": {
+    "hash": "99a2358dbb6d19ed9fa984b261ce2bf4",
+    "version": "1.1.0",
+    "filename": "cogito-v2-preview-deepseek-671b-moe.yaml",
+    "display_name": "Cogito V2 Preview Deepseek 671B Moe"
+  },
+  "arcee-ai/AFM-4.5B": {
+    "hash": "5b9b28f8c6d3063b78617015802905f7",
+    "version": "1.1.0",
+    "filename": "afm-4.5b.yaml",
+    "display_name": "AFM-4.5B"
+  },
+  "zai-org/GLM-4.5-Air-FP8": {
+    "hash": "e818f5b2eea62d57d5adacd332daa39b",
+    "version": "1.1.0",
+    "filename": "glm-4.5-air-fp8.yaml",
+    "display_name": "Glm 4.5 Air Fp8"
   }
 }
