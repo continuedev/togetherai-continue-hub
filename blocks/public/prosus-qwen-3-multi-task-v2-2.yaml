@@ -1,0 +1,17 @@
+---
+name: Prosus Qwen 3 Multi Task V2 2
+version: 1.1.0
+schema: v1
+models:
+  - name: Prosus Qwen 3 Multi Task V2 2
+    provider: together
+    model: prosus/qwen-qwen3-32b-fp8-long-context
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 40960
+    capabilities:
+      - tool_use
+    roles:
+      - apply
+      - chat
+      - edit
