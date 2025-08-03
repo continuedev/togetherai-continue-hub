@@ -1,0 +1,17 @@
+---
+name: Cogito V2 Preview Llama 70B
+version: 1.1.0
+schema: v1
+models:
+  - name: Cogito V2 Preview Llama 70B
+    provider: together
+    model: deepcogito/cogito-v2-preview-llama-70B
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    capabilities:
+      - tool_use
+    roles:
+      - apply
+      - chat
+      - edit
