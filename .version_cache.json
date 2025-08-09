@@ -264,10 +264,10 @@
     "display_name": "DeepSeek R1 Distill Llama 70B Free"
   },
   "Qwen/Qwen2.5-Coder-32B-Instruct": {
-    "hash": "54bd1a7a55bde518c3ea9044a8f4c53d",
-    "version": "1.2.0",
-    "filename": "qwen-2.5-coder-32b-instruct.yaml",
-    "display_name": "Qwen 2.5 Coder 32B Instruct"
+    "hash": "d30bf9e164586f9f4715d6155714e3e4",
+    "version": "1.3.0",
+    "filename": "qwen2.5-coder-32b-instruct.yaml",
+    "display_name": "Qwen2.5 Coder 32B Instruct"
   },
   "Qwen/Qwen2.5-7B-Instruct-Turbo": {
     "hash": "03642c42b35de9aeab302ff69439016f",
@@ -562,5 +562,35 @@
     "version": "1.1.0",
     "filename": "qwen3-235b-a22b-thinking-2507-fp8.yaml",
     "display_name": "Qwen3 235B A22B Thinking 2507 FP8"
+  },
+  "arize-ai/qwen-2-1.5b-instruct": {
+    "hash": "4629cb8d33e5060e8c3e241fbed093d8",
+    "version": "1.1.0",
+    "filename": "arize-ai-qwen-2-1.5b-instruct.yaml",
+    "display_name": "Arize AI Qwen 2 1.5B Instruct"
+  },
+  "openai/gpt-oss-120b": {
+    "hash": "dbc159eef666ff27e29914593278a461",
+    "version": "1.1.0",
+    "filename": "openai-gpt-oss-120b.yaml",
+    "display_name": "OpenAI GPT-OSS 120B"
+  },
+  "deepcogito/cogito-v2-preview-deepseek-671b": {
+    "hash": "c31bb8cb25c3c695f3a9acaad1e246e2",
+    "version": "1.1.0",
+    "filename": "cogito-v2-preview-deepseek-671b-moe.yaml",
+    "display_name": "Cogito V2 Preview Deepseek 671B Moe"
+  },
+  "openai/gpt-oss-20b": {
+    "hash": "30aa5120baf884dd9bf588f69c6c8844",
+    "version": "1.1.0",
+    "filename": "openai-gpt-oss-20b.yaml",
+    "display_name": "OpenAI GPT-OSS 20B"
+  },
+  "zai-org/GLM-4.5-Air-FP8": {
+    "hash": "e818f5b2eea62d57d5adacd332daa39b",
+    "version": "1.1.0",
+    "filename": "glm-4.5-air-fp8.yaml",
+    "display_name": "Glm 4.5 Air Fp8"
   }
 }
