@@ -1,0 +1,17 @@
+---
+name: Cogito V2 Preview Deepseek 671B Moe
+version: 1.1.0
+schema: v1
+models:
+  - name: Cogito V2 Preview Deepseek 671B Moe
+    provider: together
+    model: deepcogito/cogito-v2-preview-deepseek-671b
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 163840
+    capabilities:
+      - tool_use
+    roles:
+      - apply
+      - chat
+      - edit
