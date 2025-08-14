@@ -1,0 +1,15 @@
+---
+name: Afm Rl Fuse 1 Polished Step 250
+version: 1.1.0
+schema: v1
+models:
+  - name: Afm Rl Fuse 1 Polished Step 250
+    provider: together
+    model: arcee-ai/AFM-4.5B
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 65536
+    roles:
+      - apply
+      - chat
+      - edit
