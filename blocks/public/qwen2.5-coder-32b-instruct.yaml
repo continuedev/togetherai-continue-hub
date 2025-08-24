@@ -1,0 +1,17 @@
+---
+name: Qwen2.5 Coder 32B Instruct
+version: 1.3.0
+schema: v1
+models:
+  - name: Qwen2.5 Coder 32B Instruct
+    provider: together
+    model: Qwen/Qwen2.5-Coder-32B-Instruct
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 32768
+    capabilities:
+      - tool_use
+    roles:
+      - apply
+      - chat
+      - edit
