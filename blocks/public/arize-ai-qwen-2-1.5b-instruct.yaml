@@ -1,14 +1,14 @@
 ---
-name: Llama 4 Scout Instruct (17Bx16E)
+name: Arize AI Qwen 2 1.5B Instruct
 version: 1.1.0
 schema: v1
 models:
-  - name: Llama 4 Scout Instruct (17Bx16E)
+  - name: Arize AI Qwen 2 1.5B Instruct
     provider: together
-    model: meta-llama/Llama-4-Scout-17B-16E-Instruct-batch
+    model: arize-ai/qwen-2-1.5b-instruct
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 1048576
+      contextLength: 32768
     capabilities:
       - tool_use
     roles:
