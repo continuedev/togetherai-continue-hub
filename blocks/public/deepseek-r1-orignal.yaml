@@ -1,14 +1,14 @@
 ---
-name: Llama 4 Scout Instruct (17Bx16E)
+name: DeepSeek R1 (orignal)
 version: 1.1.0
 schema: v1
 models:
-  - name: Llama 4 Scout Instruct (17Bx16E)
+  - name: DeepSeek R1 (orignal)
     provider: together
-    model: meta-llama/Llama-4-Scout-17B-16E-Instruct-batch
+    model: deepseek-ai/DeepSeek-R1-DE
     apiKey: ${{ inputs.TOGETHER_API_KEY }}
     defaultCompletionOptions:
-      contextLength: 1048576
+      contextLength: 163840
     capabilities:
       - tool_use
     roles:
