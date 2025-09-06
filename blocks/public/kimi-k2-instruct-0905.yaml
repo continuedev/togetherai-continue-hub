@@ -1,0 +1,17 @@
+---
+name: Kimi K2-Instruct 0905
+version: 1.1.0
+schema: v1
+models:
+  - name: Kimi K2-Instruct 0905
+    provider: together
+    model: moonshotai/Kimi-K2-Instruct-0905
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 262144
+    capabilities:
+      - tool_use
+    roles:
+      - apply
+      - chat
+      - edit

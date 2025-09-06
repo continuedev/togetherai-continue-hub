@@ -1,0 +1,17 @@
+---
+name: DeepSeek V3.1
+version: 1.1.0
+schema: v1
+models:
+  - name: DeepSeek V3.1
+    provider: together
+    model: deepseek-ai/DeepSeek-V3.1
+    apiKey: ${{ inputs.TOGETHER_API_KEY }}
+    defaultCompletionOptions:
+      contextLength: 131072
+    capabilities:
+      - tool_use
+    roles:
+      - apply
+      - chat
+      - edit

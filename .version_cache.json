@@ -24,10 +24,10 @@
     "display_name": "Gemma-2 Instruct (9B)"
   },
   "BAAI/bge-large-en-v1.5": {
-    "hash": "c4a81d1b44413c13a931a5e060d8b651",
-    "version": "1.1.0",
-    "filename": "baai-bge-large-1p5.yaml",
-    "display_name": "BAAI-Bge-Large-1p5"
+    "hash": "0e4293850714a60c78decfe94d94327c",
+    "version": "1.2.0",
+    "filename": "baai-bge-large-1.5.yaml",
+    "display_name": "BAAI-Bge-Large-1.5"
   },
   "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo": {
     "hash": "7252b8fef1cb9cd5e6be5168b8a53faf",
@@ -562,5 +562,119 @@
     "version": "1.1.0",
     "filename": "qwen3-235b-a22b-thinking-2507-fp8.yaml",
     "display_name": "Qwen3 235B A22B Thinking 2507 FP8"
+  },
+  "deepseek-ai/DeepSeek-R1-DE": {
+    "hash": "a0123c3d54e81ab0a18a5e62727f4eba",
+    "version": "1.1.0",
+    "filename": "deepseek-r1-orignal.yaml",
+    "display_name": "DeepSeek R1 (orignal)"
+  },
+  "openai/gpt-oss-20b": {
+    "hash": "30aa5120baf884dd9bf588f69c6c8844",
+    "version": "1.1.0",
+    "filename": "openai-gpt-oss-20b.yaml",
+    "display_name": "OpenAI GPT-OSS 20B"
+  },
+  "moonshotai/Kimi-K2-Instruct-0905": {
+    "hash": "6c8496430e846fc40cec48d465f8264b",
+    "version": "1.1.0",
+    "filename": "kimi-k2-instruct-0905.yaml",
+    "display_name": "Kimi K2-Instruct 0905"
+  },
+  "deepcogito/cogito-v2-preview-llama-405B": {
+    "hash": "b0930003d1a67fb8e96ed09fdee88430",
+    "version": "1.1.0",
+    "filename": "deepcogito-cogito-v2-preview-llama-405b.yaml",
+    "display_name": "Deepcogito Cogito V2 Preview Llama 405B"
+  },
+  "zai-org/GLM-4.5-Air-FP8": {
+    "hash": "e818f5b2eea62d57d5adacd332daa39b",
+    "version": "1.1.0",
+    "filename": "glm-4.5-air-fp8.yaml",
+    "display_name": "Glm 4.5 Air Fp8"
+  },
+  "arize-ai/qwen-2-1.5b-instruct": {
+    "hash": "4629cb8d33e5060e8c3e241fbed093d8",
+    "version": "1.1.0",
+    "filename": "arize-ai-qwen-2-1.5b-instruct.yaml",
+    "display_name": "Arize AI Qwen 2 1.5B Instruct"
+  },
+  "arcee-ai/AFM-4.5B": {
+    "hash": "6ee70649073f042839a651efe7ab1c56",
+    "version": "1.1.0",
+    "filename": "afm-4.5b.yaml",
+    "display_name": "AFM-4.5B"
+  },
+  "deepcogito/cogito-v2-preview-deepseek-671b": {
+    "hash": "c31bb8cb25c3c695f3a9acaad1e246e2",
+    "version": "1.1.0",
+    "filename": "cogito-v2-preview-deepseek-671b-moe.yaml",
+    "display_name": "Cogito V2 Preview Deepseek 671B Moe"
+  },
+  "deepcogito/cogito-v2-preview-llama-109B-MoE": {
+    "hash": "7fdad331459758f5f2d5e8c59dc54777",
+    "version": "1.1.0",
+    "filename": "cogito-v2-preview-llama-109b-moe.yaml",
+    "display_name": "Cogito V2 Preview Llama 109B MoE"
+  },
+  "deepcogito/cogito-v2-preview-llama-70B": {
+    "hash": "cbb753aa85d07b5f88d9f8b07b9644b4",
+    "version": "1.1.0",
+    "filename": "deepcogito-cogito-v2-preview-llama-70b.yaml",
+    "display_name": "Deepcogito Cogito V2 Preview Llama 70B"
+  },
+  "deepseek-ai/DeepSeek-V3.1": {
+    "hash": "183c267374649abd8222a084c6935b05",
+    "version": "1.1.0",
+    "filename": "deepseek-v3.1.yaml",
+    "display_name": "DeepSeek V3.1"
+  },
+  "meta-llama/Llama-3.1-405B-Instruct": {
+    "hash": "4af260f76f9f31ae37b28b7dbe857d44",
+    "version": "1.1.0",
+    "filename": "meta-llama-3.1-405b-instruct.yaml",
+    "display_name": "Meta Llama 3.1 405B Instruct"
+  },
+  "meta-llama/Llama-3-70b-hf": {
+    "hash": "86382992bbbe32304ace7688bc7ac5c3",
+    "version": "1.1.0",
+    "filename": "meta-llama-3-70b-hf.yaml",
+    "display_name": "Meta Llama 3 70B HF"
+  },
+  "openai/gpt-oss-120b": {
+    "hash": "dbc159eef666ff27e29914593278a461",
+    "version": "1.1.0",
+    "filename": "openai-gpt-oss-120b.yaml",
+    "display_name": "OpenAI GPT-OSS 120B"
+  },
+  "Qwen/Qwen2.5-72B-Instruct": {
+    "hash": "af8d6d7cd1af4bd52f309404597bd398",
+    "version": "1.1.0",
+    "filename": "qwen2.5-72b-instruct.yaml",
+    "display_name": "Qwen2.5 72B Instruct"
+  },
+  "meta-llama/Meta-Llama-3.1-70B-Instruct-Reference": {
+    "hash": "7cf5f42792a627bf2e27964ccea1cf00",
+    "version": "1.1.0",
+    "filename": "meta-llama-3.1-70b-instruct.yaml",
+    "display_name": "Meta Llama 3.1 70B Instruct"
+  },
+  "meta-llama/Llama-3.2-1B-Instruct": {
+    "hash": "73e6943851ca30a3488869258d71455b",
+    "version": "1.1.0",
+    "filename": "meta-llama-3.2-1b-instruct.yaml",
+    "display_name": "Meta Llama 3.2 1B Instruct"
+  },
+  "meta-llama/Meta-Llama-3.1-8B-Instruct-Reference": {
+    "hash": "52ab4ab8e5f11473dc4154d7df60b691",
+    "version": "1.1.0",
+    "filename": "meta-llama-3.1-8b-instruct.yaml",
+    "display_name": "Meta Llama 3.1 8B Instruct"
+  },
+  "meta-llama/Meta-Llama-3-8B-Instruct": {
+    "hash": "17e344dffecbb9735fa939beb8b05e0c",
+    "version": "1.1.0",
+    "filename": "meta-llama-3-8b-instruct.yaml",
+    "display_name": "Meta Llama 3 8B Instruct"
   }
 }
